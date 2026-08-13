@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Profile",
-  "source": {"figmaPage": "❖ Profile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
-  "observedVariantSignature": {},
+  "source": {"figmaPage": "❖ Profile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
   "verification": {"status": "pending-verification", "reason": "The Profile component page is confirmed, but its published top-level variants are not recoverable with enough confidence from the aggregate snapshot index."},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep profile row/type semantics separate from interaction states when the exact component sets are verified.", "Do not infer Profile properties from generic Type/State signatures shared by unrelated families."]}
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep profile row/type semantics separate from interaction states when the exact component sets are verified.", "Do not infer Profile properties from generic Type/State signatures shared by unrelated families."], "details": {}}
 }

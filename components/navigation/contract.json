@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Navigation",
-  "source": {"figmaPage": "❖ Navigation", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
-  "observedVariantSignature": {},
+  "source": {"figmaPage": "❖ Navigation", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
   "verification": {"status": "pending-verification", "reason": "Navigation is confirmed as a dedicated component page; exact top-level properties cannot be assigned safely from the aggregate snapshot index."},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Separate navigation hierarchy, active state and platform/layout concerns once node-level properties are available.", "Do not copy the file-level Arrow/Color/Scheme/State/Text/Type signature into Navigation without exact component-set evidence."]}
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Separate navigation hierarchy, active state and platform/layout concerns once node-level properties are available.", "Do not copy the file-level Arrow/Color/Scheme/State/Text/Type signature into Navigation without exact component-set evidence."], "details": {}}
 }
