@@ -1,0 +1,17 @@
+{
+  "component": "Icons",
+  "source": {
+    "figmaPage": "❖ Icons",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": "pending-verification",
+  "observedVariantSignature": null,
+  "normalization": {
+    "notes": [
+      "The uploaded snapshot confirms the dedicated Icons family/page, but the current offline extraction does not reliably separate active icon component-set properties from legacy or nested icon assets.",
+      "Do not derive a production icon API from file-level aggregate signatures; verify published icon sets when live Figma component metadata becomes available.",
+      "Preserve icon naming and semantic intent from Figma when a production implementation is mapped."
+    ]
+  }
+}
