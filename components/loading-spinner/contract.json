@@ -1,10 +1,37 @@
 {
   "schemaVersion": 1,
   "component": "Loading, spinner",
-  "source": {"figmaPage": "❖ Loading, spinner", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "source": {
+    "figmaPage": "❖ Loading, spinner",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": {
+    "status": "observed",
+    "reason": "The offline .fig contains exact Spinner / iOS, Spinner / Android and Spinner / Web component sets with explicit property options."
+  },
   "variants": {},
-  "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The loading/spinner family is confirmed by the uploaded snapshot.", "Verify size and theme variants against the live published component set before defining a code-facing API."], "details": {}}
+  "subcomponents": {
+    "Spinner / iOS": {
+      "Size": ["small", "large"]
+    },
+    "Spinner / Android": {
+      "Size": ["xsmall", "small", "medium", "large"]
+    },
+    "Spinner / Web": {
+      "Color": ["Theme", "Mono"],
+      "Size": ["xsmall", "small", "medium", "large"]
+    }
+  },
+  "evidence": {
+    "componentSetNodeIds": ["42354:6355", "42354:6357", "42354:6359"]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Size", "Color"],
+    "notes": [
+      "Platform-specific spinner sets are kept separate rather than flattened into one artificial matrix.",
+      "Values are taken directly from the uploaded .fig component-set metadata."
+    ],
+    "details": {}
+  }
 }
