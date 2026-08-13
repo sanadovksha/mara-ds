@@ -1,0 +1,16 @@
+{
+  "component": "Sport Top Card",
+  "source": {"figmaPage": "❖ Sport Top Card", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": {
+    "state": ["Default", "Hover", "Focused", "Loading", "Unavailable", "Choose bonus"],
+    "white bg": ["true"]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["State", "White Background"],
+    "notes": [
+      "The state values and white-bg boolean are directly present in the uploaded snapshot.",
+      "Choose bonus behaves like a content/action state and should be reviewed before being treated as a generic visual state.",
+      "Normalize lowercase property labels only together with Figma."
+    ]
+  }
+}
