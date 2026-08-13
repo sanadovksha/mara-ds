@@ -1,0 +1,7 @@
+{
+  "component": "Passcode",
+  "source": {"figmaPage": "❖ Passcode", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Passcode family is confirmed by the uploaded Figma snapshot.", "Verify entry, error and completion states against the live component set before defining a production contract."]}
+}
