@@ -1,21 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Sport Event Tile",
   "source": {"figmaPage": "❖ Sport Event Tile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": {
-    "+Favs": ["false", "true"],
-    "type": ["Live", "Prematch"]
-  },
-  "observedRelatedPatterns": {
-    "mobileMode": ["Prematch", "Live", "Favs", "Streams", "Mono"],
-    "deviceNames": ["Sport Event Tile /Mobile", "Sport Event Tile /Desktop", "Sport Event Tile Small /Mobile", "Sport Event Tile Small /Desktop"],
-    "liveIcon": {"text": ["false", "true"], "Size": ["M", "L"], "Text Color": ["Red"]}
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["Favorites", "Mode", "Device", "Size"],
-    "notes": [
-      "The +Favs × type matrix is directly visible in the snapshot.",
-      "Mobile mode also contains Favs, Streams and Mono values, so Mode should be reviewed before a single cross-device contract is defined.",
-      "Rename +Favs only together with the source Figma component."
-    ]
-  }
+  "verification": {"status": "observed", "reason": "The +Favs × type matrix is directly visible in the uploaded snapshot."},
+  "variants": {"+Favs": ["false", "true"], "type": ["Live", "Prematch"]},
+  "subcomponents": {},
+  "evidence": {"relatedPatterns": {"mobileMode": ["Prematch", "Live", "Favs", "Streams", "Mono"], "deviceNames": ["Sport Event Tile /Mobile", "Sport Event Tile /Desktop", "Sport Event Tile Small /Mobile", "Sport Event Tile Small /Desktop"], "liveIcon": {"text": ["false", "true"], "Size": ["M", "L"], "Text Color": ["Red"]}}},
+  "normalization": {"recommendedPropertyNames": ["Favorites", "Mode", "Device", "Size"], "notes": ["Mobile mode also contains Favs, Streams and Mono values, so Mode should be reviewed before a single cross-device contract is defined.", "Rename +Favs only together with the source Figma component."], "details": {}}
 }
