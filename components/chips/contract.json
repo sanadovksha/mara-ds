@@ -7,17 +7,23 @@
     "status": "snapshot-derived"
   },
   "verification": {
-    "status": "pending-verification",
-    "reason": "The component family is confirmed by the uploaded Figma snapshot; live published properties still require verification."
+    "status": "observed",
+    "reason": "The offline .fig contains an exact `Chips/Element` component set with explicit property definitions and options."
   },
-  "variants": {},
+  "variants": {
+    "State": ["Regular", "Hover", "Active", "Pressed", "Loader", "Focus"],
+    "Type": ["Filled", "Border", "Advance"]
+  },
   "subcomponents": {},
-  "evidence": {},
+  "evidence": {
+    "componentSet": "Chips/Element",
+    "nodeId": "42354:6405"
+  },
   "normalization": {
-    "recommendedPropertyNames": [],
+    "recommendedPropertyNames": ["State", "Type"],
     "notes": [
-      "The component family is confirmed by the uploaded Figma snapshot.",
-      "Verify top-level variant properties against the live published component set before defining code-facing props."
+      "Property names and options are taken directly from the exact component-set metadata embedded in the uploaded .fig snapshot.",
+      "Publication status is not asserted because live Figma API access is currently rate-limited."
     ],
     "details": {}
   }
