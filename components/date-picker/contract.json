@@ -7,17 +7,31 @@
     "status": "snapshot-derived"
   },
   "verification": {
-    "status": "pending-verification",
-    "reason": "The component family is confirmed by the uploaded Figma snapshot; live published properties still require verification."
+    "status": "observed",
+    "reason": "Exact Date Picker component sets and their property definitions are recoverable from the uploaded .fig snapshot."
   },
   "variants": {},
-  "subcomponents": {},
-  "evidence": {},
+  "subcomponents": {
+    "Date Picker / Week Day": {
+      "Device": ["Mobile", "Desktop"]
+    },
+    ".Date Picker / Calendar / Day Type": {
+      "State": ["Regular", "Hover", "Focus", "Disable"],
+      "Type": ["Default", "Today", "Active", "Range Start", "Range Center", "Range End", "Date"]
+    }
+  },
+  "evidence": {
+    "componentSetNodeIds": ["42354:6095", "42354:6097"],
+    "relatedObservedPattern": {
+      "Device": ["Mobile"],
+      "Range": ["On"]
+    }
+  },
   "normalization": {
-    "recommendedPropertyNames": [],
+    "recommendedPropertyNames": ["Device", "State", "Type", "Range"],
     "notes": [
-      "The Date Picker family is confirmed by the uploaded Figma snapshot.",
-      "Verify active calendar/date states and sizing against the live published component set before defining code-facing props."
+      "The subcomponent names, property names and option values are read directly from the exact component-set metadata embedded in the .fig file.",
+      "The source value `Disable` is preserved and should only be renamed together with Figma."
     ],
     "details": {}
   }
