@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "tokens" / "export-manifest.json"
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$")
 MODES = ["Light • COM", "Dark • COM", "Light • RU", "Dark • RU"]
+PARTITION_KEYS = {"ui-controls": "uiControls"}
 
 
 def load(path: Path):
@@ -66,7 +67,7 @@ def main():
         if not path.exists():
             raise SystemExit(f"Missing semantic file: {rel}")
         current = tokens(path)
-        part = path.stem
+        part = PARTITION_KEYS.get(path.stem, path.stem)
         if len(current) != partitions.get(part):
             raise SystemExit(f"Partition count mismatch for {part}: {len(current)} != {partitions.get(part)}")
         for name, values in current.items():
