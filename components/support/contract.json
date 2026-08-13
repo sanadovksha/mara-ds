@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Support",
   "source": {"figmaPage": "❖ Support", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Support family is confirmed by the uploaded Figma snapshot.", "Verify the current support states and channel-specific variants against the live published component set before defining code-facing props."]}
+  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Support family is confirmed by the uploaded Figma snapshot."], "details": {}}
 }

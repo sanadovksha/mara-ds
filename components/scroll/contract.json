@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Scroll",
   "source": {"figmaPage": "❖ Scroll", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Scroll family is confirmed by the uploaded Figma snapshot.", "Verify orientation, size and state variants against the live component set before defining code-facing props."]}
+  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Scroll family is confirmed by the uploaded Figma snapshot."], "details": {}}
 }

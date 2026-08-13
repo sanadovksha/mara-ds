@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Timer",
   "source": {"figmaPage": "❖ Timer", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Timer family is confirmed by the uploaded snapshot.", "Verify visual states and format variants against the live published component set before defining a code-facing API."]}
+  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Timer family is confirmed by the uploaded snapshot."], "details": {}}
 }
