@@ -11,6 +11,13 @@ REQUIRED = [
     COMPONENTS / "text-field" / "contract.json",
     COMPONENTS / "form-controls" / "contract.json",
     COMPONENTS / "tabs" / "contract.json",
+    COMPONENTS / "modal" / "contract.json",
+    COMPONENTS / "dropdown" / "contract.json",
+    COMPONENTS / "select" / "contract.json",
+    COMPONENTS / "search-input" / "contract.json",
+    COMPONENTS / "alerts" / "contract.json",
+    COMPONENTS / "toasts" / "contract.json",
+    COMPONENTS / "tooltips" / "contract.json",
 ]
 
 
@@ -35,6 +42,13 @@ def main() -> None:
         "text-field": "Text Field",
         "form-controls": "Form Controls",
         "tabs": "Tabs",
+        "modal": "Modal",
+        "dropdown": "DropDown",
+        "select": "Select",
+        "search-input": "Search Input",
+        "alerts": "Alerts",
+        "toasts": "Toasts",
+        "tooltips": "Tooltips",
     }
     for folder, component_name in expected.items():
         path = COMPONENTS / folder / "contract.json"
@@ -46,8 +60,10 @@ def main() -> None:
             raise SystemExit(f"Missing snapshot-derived status in {path.relative_to(ROOT)}")
         if not source.get("figmaPage"):
             raise SystemExit(f"Missing Figma page in {path.relative_to(ROOT)}")
+        if not data.get("normalization", {}).get("notes"):
+            raise SystemExit(f"Missing normalization notes in {path.relative_to(ROOT)}")
 
-    print("Component contracts valid: 4 normalized families; catalog pages: 46")
+    print(f"Component contracts valid: {len(expected)} normalized families; catalog pages: 46")
 
 
 if __name__ == "__main__":
