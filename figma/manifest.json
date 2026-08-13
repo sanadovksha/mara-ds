@@ -1,0 +1,41 @@
+{
+  "source": {
+    "name": "Design System",
+    "fileKey": "cUFnNueMAuBe5RKObSu6c7",
+    "figmaUrl": "https://www.figma.com/design/cUFnNueMAuBe5RKObSu6c7/Design-System"
+  },
+  "summary": {
+    "pages": 47,
+    "variables": 813,
+    "variableCollections": 2,
+    "styles": {
+      "text": 93,
+      "paint": 19,
+      "effect": 14,
+      "grid": 4
+    }
+  },
+  "variableCollections": [
+    {
+      "name": "Color System",
+      "count": 388,
+      "modes": ["Light • COM", "Dark • COM", "Light • RU", "Dark • RU"]
+    },
+    {
+      "name": "Core Colors",
+      "count": 425,
+      "modes": ["Mode 1"]
+    }
+  ],
+  "componentPages": [
+    "❖ 3ds", "❖ Alerts", "❖ Badge", "❖ Banners", "❖ Bottomsheet Cards / Betslip",
+    "❖ Bonus", "❖ Buttons", "❖ Captсha", "❖ Casino Cards", "❖ Chips",
+    "❖ Custom Keyboard", "❖ Date Picker", "❖ DropDown", "❖ Empty Pages", "❖ Footer",
+    "❖ Form Controls", "❖ History Cards", "❖ Icons", "❖ Labels", "❖ Link",
+    "❖ Loading, spinner", "❖ Markets", "❖ Navigation", "❖ Modal", "❖ Passcode",
+    "❖ Password Create Block", "❖ Profile", "❖ Search Input", "❖ Select", "❖ Scroll",
+    "❖ Slider Nav", "❖ Sport Bar", "❖ Sport Cards", "❖ Sport Event Header", "❖ Sport Event Tile",
+    "❖ Sport Event Tile Child", "❖ Sport Top Card", "❖ Sport Tournament Header", "❖ Support",
+    "❖ Tabs", "❖ Tile", "❖ Text Fields", "❖ Timer", "❖ Toasts", "❖ Tooltips", "❖ Tooltip new feature"
+  ]
+}
