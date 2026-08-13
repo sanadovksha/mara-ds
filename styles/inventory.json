@@ -1,0 +1,19 @@
+{
+  "source": "Figma Design System",
+  "figmaFileKey": "cUFnNueMAuBe5RKObSu6c7",
+  "counts": {
+    "text": 93,
+    "paint": 19,
+    "effect": 14,
+    "grid": 4
+  },
+  "textStylesExported": 50,
+  "textStylesPending": 43,
+  "detailsStatus": {
+    "text": "partial",
+    "paint": "pending",
+    "effect": "pending",
+    "grid": "pending"
+  },
+  "note": "Detailed style export is incomplete because the connected Figma Starter plan reached its MCP tool-call limit. Counts are taken directly from Figma and should not be inferred or edited manually."
+}
