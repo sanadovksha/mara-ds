@@ -1,0 +1,21 @@
+{
+  "component": "Sport Bar",
+  "source": {"figmaPage": "❖ Sport Bar", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": {
+    "Size": ["S", "M", "L"],
+    "Active": ["Off", "On"],
+    "State": ["Default", "Hover", "Error", "Disable"]
+  },
+  "observedRelatedPatterns": {
+    "Sport": ["Default", "TOP"],
+    "deviceNames": ["Sport Bar /Mobile", "Sport Bar /Desktop"]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Size", "Active", "State"],
+    "notes": [
+      "The Size × Active × State matrix is directly present in the uploaded snapshot.",
+      "Keep sport identity/category separate from interaction state in a production API.",
+      "Prefer Disabled over the legacy Disable label when Figma and code are normalized together."
+    ]
+  }
+}
