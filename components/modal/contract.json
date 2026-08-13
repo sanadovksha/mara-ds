@@ -1,32 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Modal",
-  "source": {
-    "figmaPage": "❖ Modal",
-    "snapshot": "designsystem-opt.fig",
-    "status": "snapshot-derived"
-  },
-  "observedSubcomponents": {
-    "Modal / Header": {
-      "Variants": ["Title + Left Icon", "Only Title", "Pure", "Central Icon"],
-      "Handle": ["Yes", "No"],
-      "Icon Close": ["Yes", "No"]
-    },
-    "Modal / Action / Mobile": {
-      "Actions": ["1 + TXT", "2 + TXT", "Add Element"]
-    },
-    "Modal / Header Element / Left Icon": {
-      "Type": ["Error", "Warning", "Info", "Success", "Pending", "Pending Neutral"]
-    },
-    "Modal / Header Element / Central Icon": {
-      "Type": ["Info", "Error", "Warning", "Success", "Bonus", "Deposite", "Other", "Icon in circle", "Reg En Mobile", "Reg Ru Mobile", "Reg Ru Desktop", "Reg En Desktop", "Custom neutral", "Logo COM", "Logo RU_1", "Logo RU_2"]
-    }
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["Variants", "Handle", "Icon Close", "Actions", "Type"],
-    "notes": [
-      "This contract preserves the subcomponent structure found in the snapshot instead of flattening Modal into one oversized variant API.",
-      "The value `Deposite` is preserved exactly as found in the snapshot and should be treated as a naming-cleanup candidate in Figma, not silently corrected in GitHub.",
-      "Boolean-looking properties such as Handle and Icon Close should only be converted to booleans in code after confirming the production component API."
-    ]
-  }
+  "source": {"figmaPage": "❖ Modal", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "observed", "reason": "Modal subcomponent property sets were isolated from the uploaded snapshot."},
+  "variants": {},
+  "subcomponents": {"Modal / Header": {"variants": {"Variants": ["Title + Left Icon", "Only Title", "Pure", "Central Icon"], "Handle": ["Yes", "No"], "Icon Close": ["Yes", "No"]}}, "Modal / Action / Mobile": {"variants": {"Actions": ["1 + TXT", "2 + TXT", "Add Element"]}}, "Modal / Header Element / Left Icon": {"variants": {"Type": ["Error", "Warning", "Info", "Success", "Pending", "Pending Neutral"]}}, "Modal / Header Element / Central Icon": {"variants": {"Type": ["Info", "Error", "Warning", "Success", "Bonus", "Deposite", "Other", "Icon in circle", "Reg En Mobile", "Reg Ru Mobile", "Reg Ru Desktop", "Reg En Desktop", "Custom neutral", "Logo COM", "Logo RU_1", "Logo RU_2"]}}},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": ["Variants", "Handle", "Icon Close", "Actions", "Type"], "notes": ["This contract preserves the subcomponent structure found in the snapshot instead of flattening Modal into one oversized variant API.", "The value `Deposite` is preserved exactly as found in the snapshot and should be treated as a naming-cleanup candidate in Figma, not silently corrected in GitHub.", "Boolean-looking properties such as Handle and Icon Close should only be converted to booleans in code after confirming the production component API."], "details": {}}
 }

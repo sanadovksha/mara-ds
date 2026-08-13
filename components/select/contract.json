@@ -1,32 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Select",
-  "source": {
-    "figmaPage": "❖ Select",
-    "snapshot": "designsystem-opt.fig",
-    "status": "snapshot-derived"
-  },
-  "observedVariantSignatures": [
-    {
-      "State": ["Default", "Active Hover", "Active", "Hover", "Disable"],
-      "Type": ["With icon"],
-      "Colour": ["Red"]
-    },
-    {
-      "Size": ["24px"],
-      "State": ["Default", "Active"]
-    }
-  ],
-  "observedRelatedElement": {
-    "Right frame": {
-      "Type": ["Link", "Select"]
-    }
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["State", "Type", "Colour", "Size"],
-    "notes": [
-      "The snapshot contains more than one Select generation; this contract records signatures that are directly observable rather than inventing a combined exhaustive matrix.",
-      "Keep the source value `Disable` as-is in the snapshot contract; if the Figma library is renamed to `Disabled`, update this contract in the same change.",
-      "Production Select state should distinguish visual states from interaction pseudo-states when the code implementation is connected."
-    ]
-  }
+  "source": {"figmaPage": "❖ Select", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "observed", "reason": "Multiple Select signatures were directly observable in the uploaded snapshot."},
+  "variants": {"signatures": [{"State": ["Default", "Active Hover", "Active", "Hover", "Disable"], "Type": ["With icon"], "Colour": ["Red"]}, {"Size": ["24px"], "State": ["Default", "Active"]}]},
+  "subcomponents": {"Right frame": {"variants": {"Type": ["Link", "Select"]}}},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": ["State", "Type", "Colour", "Size"], "notes": ["The snapshot contains more than one Select generation; this contract records signatures that are directly observable rather than inventing a combined exhaustive matrix.", "Keep the source value `Disable` as-is in the snapshot contract; if the Figma library is renamed to `Disabled`, update this contract in the same change.", "Production Select state should distinguish visual states from interaction pseudo-states when the code implementation is connected."], "details": {}}
 }
