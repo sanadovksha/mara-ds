@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Bonus",
-  "source": {"figmaPage": "❖ Bonus", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
-  "observedVariantSignature": {},
-  "verification": {"status": "pending-verification", "reason": "The page is confirmed in the uploaded snapshot; exact top-level Bonus properties are not safely separable from nested/legacy variants."},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep bonus-specific states separate from generic component State values until the exact component set is verified.", "Do not promote file-level Type values into a Bonus production API without node-level evidence."]}
+  "source": {"figmaPage": "❖ Bonus", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The page is confirmed in the uploaded snapshot.", "Do not promote generic file-level properties without exact component-set evidence."], "details": {}}
 }
