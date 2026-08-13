@@ -2,9 +2,16 @@
   "schemaVersion": 1,
   "component": "Password Create Block",
   "source": {"figmaPage": "❖ Password Create Block", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "The current offline extraction cannot reliably distinguish the top-level component contract from nested elements."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "Exact component-set properties are present in the uploaded .fig snapshot."},
+  "variants": {
+    "State": ["Default", "Empty Error #1", "Empty Error #2", "Fill Error", "Fill Success", "Active"],
+    "Show Password": ["Yes"]
+  },
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The page/family is confirmed by the uploaded snapshot.", "The current offline extraction cannot reliably distinguish the top-level component contract from nested text-field, validation and password-rule components, so no public variant matrix is inferred here.", "Verify published properties from live Figma metadata before mapping this family to production code."], "details": {}}
+  "evidence": {"componentSetNodeId": "42879:8", "confirmedProperties": ["State", "Show Password", "Show Requirement"]},
+  "normalization": {
+    "recommendedPropertyNames": ["State", "Show Password", "Show Requirement"],
+    "notes": ["State values and property names are read from the exact component-set metadata in the .fig file.", "Show Requirement is confirmed as a property; its full value domain is not inferred from the string snapshot."],
+    "details": {}
+  }
 }

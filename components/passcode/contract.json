@@ -2,9 +2,11 @@
   "schemaVersion": 1,
   "component": "Passcode",
   "source": {"figmaPage": "❖ Passcode", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
-  "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Passcode family is confirmed by the uploaded Figma snapshot.", "Verify entry, error and completion states against the live component set before defining a production contract."], "details": {}}
+  "verification": {"status": "observed", "reason": "Exact Passcode component-set state metadata is recoverable from the uploaded .fig snapshot."},
+  "variants": {"State": ["Filled", "Normal"]},
+  "subcomponents": {
+    "Passcode/Mobile/Keyboard/Passcode Buttons/Property 45": {"State": ["Null", "Enterng", "FaceID"]}
+  },
+  "evidence": {"componentSetNodeIds": ["42354:7356", "43335:14695"]},
+  "normalization": {"recommendedPropertyNames": ["State"], "notes": ["The source value `Enterng` is preserved exactly as found and is a naming-cleanup candidate.", "Only exact Passcode-family sets are promoted; nearby generic modal/text-field states are excluded."], "details": {}}
 }

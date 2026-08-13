@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "component": "Support",
   "source": {"figmaPage": "❖ Support", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "The uploaded .fig exposes an exact Support component set with explicit property definitions."},
+  "variants": {"Mobile": ["Yes"], "Guest": ["Off"], "Type": ["Collapsed", "Opened"]},
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Support family is confirmed by the uploaded Figma snapshot."], "details": {}}
+  "evidence": {"componentSetNodeIds": ["40000002:1366", "40000002:1367"]},
+  "normalization": {"recommendedPropertyNames": ["Mobile", "Guest", "Type"], "notes": ["The observed values come from exact Support variants embedded in the .fig file; unobserved Mobile/Guest options are not inferred."], "details": {}}
 }
