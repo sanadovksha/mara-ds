@@ -6,6 +6,10 @@
     "effect": 14,
     "grid": 4
   },
+  "activeApiExportStatus": {
+    "complete": false,
+    "note": "A complete active-style export was not captured before the Figma Starter MCP limit was reached. Do not infer the active 93/19/14/4 style set from partial files."
+  },
   "uploadedFilePublishableSnapshot": {
     "source": "designsystem-opt.fig",
     "text": 102,
@@ -22,5 +26,5 @@
     ]
   },
   "status": "complete-file-snapshot",
-  "note": "The uploaded .fig archive contains more publishable style records than Figma Plugin API currently returns as active local styles. The repository preserves the complete file snapshot and keeps the API counts separately instead of guessing which file records Figma hides or treats as legacy."
+  "note": "The uploaded .fig archive contains more publishable style records than Figma Plugin API reported as active local styles. The repository preserves the complete offline file snapshot and keeps active API counts separately instead of guessing which file records are current, hidden, legacy, or unpublished."
 }
