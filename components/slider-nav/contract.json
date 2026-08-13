@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "component": "Slider Nav",
   "source": {"figmaPage": "❖ Slider Nav", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "Exact Slider Nav component-set properties are present in the uploaded .fig snapshot."},
+  "variants": {"Direction": ["Right", "Left"], "Size": ["medium", "small"], "State": ["Hover", "Regular"], "Type": ["Cards", "Banner", "Banner-Mono"]},
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Slider Nav family is confirmed by the uploaded snapshot."], "details": {}}
+  "evidence": {"componentSetNodeId": "42354:8293"},
+  "normalization": {"recommendedPropertyNames": ["Direction", "Size", "State", "Type"], "notes": ["Property options are read directly from the exact Slider Nav component set in the .fig file."], "details": {}}
 }
