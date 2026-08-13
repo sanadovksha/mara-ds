@@ -1,0 +1,31 @@
+{
+  "component": "Tabs",
+  "source": {
+    "figmaPage": "❖ Tabs",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedPatterns": {
+    "levelAndSize": {
+      "Size": ["xsmall", "small", "medium", "large", "xlarge"],
+      "Level": ["Primary", "Secondary"]
+    },
+    "tabItem": {
+      "Active": ["Off", "On"],
+      "Content": ["Icon", "Text"],
+      "State": ["Disable", "Focus", "Hover", "Regular"]
+    },
+    "container": {
+      "Dark Mode": [false, true],
+      "Tabs": ["Multiple", "Single"]
+    }
+  },
+  "normalization": {
+    "recommendedProperties": ["Size", "Level", "Active", "Content", "State"],
+    "notes": [
+      "Container-level Dark Mode is an observed Figma property; production theme should normally come from the design-system theme context rather than a Tabs prop.",
+      "The snapshot contains several additional tab/navigation patterns, so this contract documents the clearest repeated signatures rather than claiming every Tabs variant is represented here.",
+      "Focus/Hover are visual interaction states and may not be public component props in code."
+    ]
+  }
+}
