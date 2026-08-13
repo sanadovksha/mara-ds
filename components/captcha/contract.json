@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "component": "Captcha",
   "source": {"figmaPage": "❖ Captсha", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live published properties still require verification."},
+  "verification": {"status": "observed", "reason": "Exact hCaptcha and reCaptcha component-set properties were recovered from the uploaded .fig snapshot; live publication status is not asserted."},
   "variants": {},
-  "subcomponents": {},
+  "subcomponents": {
+    "hCaptcha": {"nodeId": "43335:14492", "State": ["Default", "Active", "Processing", "Done", "Error", "Warning"], "Theme": ["Light", "Dark"]},
+    "reCaptcha": {"nodeId": "43335:14495", "State": ["Default", "Processing", "Done", "Error", "Warning"], "Theme": ["Light", "Dark"]}
+  },
   "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Captcha family is confirmed by the uploaded Figma snapshot.", "The Figma page name contains a mixed-script character; keep the exact source page reference while normalizing the production component name to Captcha."], "details": {}}
+  "normalization": {"recommendedPropertyNames": ["State", "Theme"], "notes": ["The source page name contains a mixed-script character and is preserved exactly.", "hCaptcha has an Active state that is not present in the recovered reCaptcha set."], "details": {}}
 }

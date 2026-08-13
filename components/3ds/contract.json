@@ -1,24 +1,10 @@
 {
   "schemaVersion": 1,
   "component": "3DS",
-  "source": {
-    "figmaPage": "❖ 3ds",
-    "snapshot": "designsystem-opt.fig",
-    "status": "snapshot-derived"
-  },
-  "verification": {
-    "status": "pending-verification",
-    "reason": "The family is confirmed by the uploaded Figma snapshot; live published properties still require verification."
-  },
-  "variants": {},
+  "source": {"figmaPage": "❖ 3ds", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "observed", "reason": "Exact component-set metadata was recovered from the uploaded .fig snapshot; live publication status is not asserted."},
+  "variants": {"State": ["Active #1", "Active #2", "Active #3", "Check Code", "Error #1", "Error #2", "Error #3", "Request Code", "Request Code Sending", "Sent", "Empty", "Active no Focus"]},
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {
-    "recommendedPropertyNames": [],
-    "notes": [
-      "The 3DS family is confirmed by the uploaded Figma snapshot.",
-      "Verify current states and layouts against the live published component set before defining a production API."
-    ],
-    "details": {}
-  }
+  "evidence": {"componentSet": {"name": "3ds", "nodeId": "43335:14542"}},
+  "normalization": {"recommendedPropertyNames": ["State"], "notes": ["State values are preserved exactly as found in the snapshot.", "Numbered Active/Error states are naming-cleanup candidates before production mapping."], "details": {}}
 }

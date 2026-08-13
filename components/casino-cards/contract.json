@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "component": "Casino Cards",
   "source": {"figmaPage": "❖ Casino Cards", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "The Casino Cards Desktop component set and its complete recovered State/Type options were found in the uploaded .fig snapshot; live publication status is not asserted."},
+  "variants": {
+    "State": ["Normal", "Unavailable", "Open Soon", "Table Full"],
+    "Type": ["Casino Card 1x", "Casino Card 1.5x", "Live-Casino Card 1.5x", "Live-Casino Card 1x"]
+  },
   "subcomponents": {},
-  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family/page is confirmed by the uploaded snapshot.", "Do not infer properties from unrelated file-level signatures."], "details": {}}
+  "evidence": {"componentSet": {"name": "Casino Cards Desktop", "nodeId": "10621:418"}},
+  "normalization": {"recommendedPropertyNames": ["State", "Type"], "notes": ["Desktop properties are documented exactly as recovered.", "Do not infer a matching mobile matrix until an exact mobile component set is isolated."], "details": {}}
 }

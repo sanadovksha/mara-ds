@@ -2,9 +2,14 @@
   "schemaVersion": 1,
   "component": "Banners",
   "source": {"figmaPage": "❖ Banners", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "The Banners page is confirmed by the snapshot, but its exact published variant matrix cannot be distinguished reliably from nested banner content."},
+  "verification": {"status": "observed", "reason": "Named banner component sets and their variant options were recovered from the uploaded .fig snapshot; live publication status is not asserted."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep content/promo category separate from visual state when the component set is verified.", "Do not infer banner variants from generic Type values in the file-level inventory."], "details": {}}
+  "subcomponents": {
+    "Banners Slider": {"nodeId": "42354:7067", "Variants": ["New", "Old (Prod)"]},
+    ".Banner / x2": {"nodeId": "42354:6587", "Variant": ["Default", "Shimmer", "Variant3"]},
+    ".Banner / x1": {"nodeId": "42354:6588", "Variant": ["Default", "Shimmer", "Variant3"]},
+    ".Banner / x3": {"nodeId": "42354:7011", "Variant": ["Shimmer", "Default"]}
+  },
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": ["Variant"], "notes": ["Source names are preserved exactly.", "Variant3 and Old (Prod) are cleanup candidates before defining a production API."], "details": {}}
 }

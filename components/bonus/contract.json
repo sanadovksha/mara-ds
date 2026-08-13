@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "component": "Bonus",
   "source": {"figmaPage": "❖ Bonus", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "verification": {"status": "observed", "reason": "Exact bonus subcomponent sets and property options were recovered from the uploaded .fig snapshot; the family is not flattened into one synthetic API."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The page is confirmed in the uploaded snapshot.", "Do not promote generic file-level properties without exact component-set evidence."], "details": {}}
+  "subcomponents": {
+    "Mobile / Bonus Radio": {"nodeId": "4340:147", "Property 1": ["Yes", "No"]},
+    "Bonus Option / Casino": {"nodeId": "44133:6095", "State": ["Default", "Hover", "Focused", "Active", "Selected", "Disabled"], "componentProperties": ["Show Tooltip", "Show Description"]}
+  },
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": ["State"], "notes": ["Property 1 is preserved as a source label and should be renamed in Figma before production mapping.", "Show Tooltip and Show Description are observed component properties; their boolean domains are not inferred from the string snapshot."], "details": {}}
 }
