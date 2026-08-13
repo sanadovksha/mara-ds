@@ -1,0 +1,17 @@
+{
+  "component": "Password Create Block",
+  "source": {
+    "figmaPage": "❖ Password Create Block",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": "pending-verification",
+  "observedVariantSignature": null,
+  "normalization": {
+    "notes": [
+      "The page/family is confirmed by the uploaded snapshot.",
+      "The current offline extraction cannot reliably distinguish the top-level component contract from nested text-field, validation and password-rule components, so no public variant matrix is inferred here.",
+      "Verify published properties from live Figma metadata before mapping this family to production code."
+    ]
+  }
+}
