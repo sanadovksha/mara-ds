@@ -1,0 +1,7 @@
+{
+  "component": "Empty Pages",
+  "source": {"figmaPage": "❖ Empty Pages", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Empty Pages family is confirmed by the uploaded Figma snapshot.", "Verify the active empty-state layouts and illustration/content variants against the live published component set before defining a production API."]}
+}
