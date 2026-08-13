@@ -1,0 +1,20 @@
+{
+  "component": "Toasts",
+  "source": {
+    "figmaPage": "❖ Toasts",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedVariantSignature": {
+    "Type": ["Success", "Failed", "Warning", "Info"]
+  },
+  "observedComponentProperties": ["Button", "Description", "Icon", "Close icon"],
+  "normalization": {
+    "recommendedPropertyNames": ["Type", "Button", "Description", "Icon", "Close icon"],
+    "notes": [
+      "The four Type values are directly observed in the Toasts component set.",
+      "Button, Description, Icon and Close icon are present as component properties in the snapshot; their property type/value domain is not inferred here.",
+      "If these are boolean visibility properties in the live library, that should be confirmed in Figma before generating a code API."
+    ]
+  }
+}
