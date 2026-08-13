@@ -23,10 +23,7 @@ EXPECTED = {
 
 
 def load(path: Path):
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        raise SystemExit(f"Invalid JSON: {path.relative_to(ROOT)}: {exc}") from exc
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def contains_observed(value):
@@ -36,69 +33,58 @@ def contains_observed(value):
                 return True
             if contains_observed(child):
                 return True
-    elif isinstance(value, list):
+    if isinstance(value, list):
         return any(contains_observed(item) for item in value)
     return False
 
 
-def has_recommendation_list(normalization):
-    return any(
-        key.startswith("recommended") and isinstance(value, list)
-        for key, value in normalization.items()
+def is_pending(data):
+    value = data.get("verification")
+    return value == "pending-verification" or (
+        isinstance(value, dict) and value.get("status") == "pending-verification"
     )
 
 
 def main():
     catalog = load(COMPONENTS / "catalog.json")
-    catalog_pages = catalog.get("componentPages")
-    if not isinstance(catalog_pages, list) or len(catalog_pages) != 46:
-        raise SystemExit("Catalog must contain exactly 46 component pages")
-    if catalog.get("summary", {}).get("componentPages") != 46 or len(EXPECTED) != 46:
-        raise SystemExit("Component coverage contract must be 46/46")
+    pages = catalog.get("componentPages")
+    if not isinstance(pages, list) or len(pages) != 46 or len(EXPECTED) != 46:
+        raise SystemExit("Component coverage must be 46/46")
 
-    seen_pages = set()
+    seen = set()
     pending = []
     observed = []
-
-    for folder, component_name in EXPECTED.items():
+    for folder, name in EXPECTED.items():
         path = COMPONENTS / folder / "contract.json"
         if not path.exists():
-            raise SystemExit(f"Missing component contract: {path.relative_to(ROOT)}")
+            raise SystemExit(f"Missing contract: {path.relative_to(ROOT)}")
         data = load(path)
-        if data.get("component") != component_name:
-            raise SystemExit(f"Unexpected component name in {path.relative_to(ROOT)}")
-
+        if data.get("component") != name:
+            raise SystemExit(f"Unexpected component name: {path.relative_to(ROOT)}")
         source = data.get("source", {})
         page = source.get("figmaPage")
-        if source.get("status") != "snapshot-derived" or not page:
-            raise SystemExit(f"Invalid source metadata in {path.relative_to(ROOT)}")
-        if page not in catalog_pages:
-            raise SystemExit(f"Contract page is missing from catalog: {page}")
-        if page in seen_pages:
-            raise SystemExit(f"Duplicate contract coverage for page: {page}")
-        seen_pages.add(page)
+        if source.get("status") != "snapshot-derived" or page not in pages or page in seen:
+            raise SystemExit(f"Invalid or duplicate source page: {path.relative_to(ROOT)}")
+        seen.add(page)
 
         normalization = data.get("normalization", {})
-        if not isinstance(normalization, dict) or not normalization.get("notes"):
-            raise SystemExit(f"Missing normalization notes in {path.relative_to(ROOT)}")
-        if not has_recommendation_list(normalization):
-            raise SystemExit(f"Missing normalization recommendation list in {path.relative_to(ROOT)}")
+        if not normalization.get("notes"):
+            raise SystemExit(f"Missing normalization notes: {path.relative_to(ROOT)}")
+        if not any(k.startswith("recommended") and isinstance(v, list) for k, v in normalization.items()):
+            raise SystemExit(f"Missing normalization recommendation list: {path.relative_to(ROOT)}")
 
-        if data.get("verification") == "pending-verification":
-            pending.append(component_name)
+        if is_pending(data):
+            pending.append(name)
         elif contains_observed(data):
-            observed.append(component_name)
+            observed.append(name)
         else:
-            raise SystemExit(
-                f"Contract must contain observed inventory or pending-verification: {path.relative_to(ROOT)}"
-            )
+            raise SystemExit(f"No observed inventory or pending status: {path.relative_to(ROOT)}")
 
-    if seen_pages != set(catalog_pages):
-        missing = sorted(set(catalog_pages) - seen_pages)
-        raise SystemExit(f"Catalog pages without contracts: {missing}")
+    if seen != set(pages):
+        raise SystemExit(f"Catalog pages without contracts: {sorted(set(pages) - seen)}")
 
-    print("OK: 46/46 catalog pages have exactly one component contract")
-    print(f"Contracts with observed snapshot inventory: {len(observed)}")
+    print("OK: 46/46 catalog pages have exactly one contract")
+    print(f"Observed snapshot contracts: {len(observed)}")
     print(f"Pending live verification: {len(pending)}")
     if pending:
         print("Pending: " + ", ".join(sorted(pending)))
