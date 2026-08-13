@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "component": "Tooltip new feature",
   "source": {"figmaPage": "❖ Tooltip new feature", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "The snapshot confirms the page but not enough context to merge its public API with Tooltips."},
+  "verification": {"status": "observed", "reason": "The uploaded .fig contains exact component sets for the new tooltip family with explicit property options."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep this family separate from the existing Tooltips contract until Figma confirms whether it is a replacement, experiment or product-specific extension."], "details": {}}
+  "subcomponents": {
+    ".Pagination": {"Property 1": ["pagination first", "pagination second", "pagination third"]},
+    "Rich Tooltip": {"Property 1": ["Rich Tooltip Bottom (Call to action)", "Rich Tooltip Left (Call to action)", "Rich Tooltip Right (Call to action)", "Rich Tooltip Top (Call to action)"]}
+  },
+  "evidence": {"componentSetNodeIds": ["42354:8995", "43872:65"], "confirmedComponentProperties": ["Title", "Desc", "Button", "Icon", "Close icon", "Stepper"]},
+  "normalization": {"recommendedPropertyNames": ["Pagination step", "Placement", "Title", "Description", "Button", "Icon", "Close icon", "Stepper"], "notes": ["The source property is still named Property 1; normalized names are recommendations only.", "This family remains separate from the existing Tooltips contract even though its own snapshot metadata is now observed."], "details": {}}
 }
