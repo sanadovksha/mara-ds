@@ -1,0 +1,7 @@
+{
+  "component": "Labels",
+  "source": {"figmaPage": "❖ Labels", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family is confirmed by the uploaded Figma snapshot.", "Verify the active label variants in the live library before exposing a production contract."]}
+}
