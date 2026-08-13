@@ -1,22 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Markets",
   "source": {"figmaPage": "❖ Markets", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": {
-    "Selected": ["Off", "On"],
-    "Type": ["Loading", "Disabled", "No data"],
-    "Size": ["Mobile"]
-  },
-  "observedRelatedPatterns": {
-    "Tab": ["H2H", "Search", "Markets"],
-    "Device": ["Mobile", "Desktop"],
-    "With image": ["On"]
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["Selected", "State", "Size", "Device"],
-    "notes": [
-      "Selected × Type × Size is directly visible in the snapshot for mobile market states.",
-      "Loading, Disabled and No data behave as states; consider renaming Type to State only together with Figma.",
-      "Tab and image/device values appear in related market components and should not automatically be flattened into one component contract."
-    ]
-  }
+  "verification": {"status": "observed", "reason": "Observed snapshot data is available."},
+  "variants": {"Selected": ["Off", "On"], "Type": ["Loading", "Disabled", "No data"], "Size": ["Mobile"]},
+  "subcomponents": {},
+  "evidence": {"relatedPatternsAvailable": true},
+  "normalization": {"recommendedPropertyNames": ["Selected", "State", "Size", "Device"], "notes": ["Loading, Disabled and No data behave as states."], "details": {}}
 }
