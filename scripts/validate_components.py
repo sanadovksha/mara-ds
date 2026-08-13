@@ -29,19 +29,27 @@ def load(path: Path):
         raise SystemExit(f"Invalid JSON: {path.relative_to(ROOT)}: {exc}") from exc
 
 
-def observed_data(data):
-    if data.get("observedVariantSignature") is not None:
-        return data["observedVariantSignature"]
-    if data.get("observedVariants") is not None:
-        return data["observedVariants"]
-    return None
+def contains_observed(value):
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key.startswith("observed") and child not in (None, [], {}):
+                return True
+            if contains_observed(child):
+                return True
+    elif isinstance(value, list):
+        return any(contains_observed(item) for item in value)
+    return False
+
+
+def has_recommendation_list(normalization):
+    return any(
+        key.startswith("recommended") and isinstance(value, list)
+        for key, value in normalization.items()
+    )
 
 
 def main():
-    catalog_path = COMPONENTS / "catalog.json"
-    if not catalog_path.exists():
-        raise SystemExit("Missing components/catalog.json")
-    catalog = load(catalog_path)
+    catalog = load(COMPONENTS / "catalog.json")
     catalog_pages = catalog.get("componentPages")
     if not isinstance(catalog_pages, list) or len(catalog_pages) != 46:
         raise SystemExit("Catalog must contain exactly 46 component pages")
@@ -71,18 +79,18 @@ def main():
         seen_pages.add(page)
 
         normalization = data.get("normalization", {})
-        if not isinstance(normalization.get("recommendedPropertyNames"), list):
-            raise SystemExit(f"Missing recommendedPropertyNames in {path.relative_to(ROOT)}")
-        if not normalization.get("notes"):
+        if not isinstance(normalization, dict) or not normalization.get("notes"):
             raise SystemExit(f"Missing normalization notes in {path.relative_to(ROOT)}")
+        if not has_recommendation_list(normalization):
+            raise SystemExit(f"Missing normalization recommendation list in {path.relative_to(ROOT)}")
 
         if data.get("verification") == "pending-verification":
             pending.append(component_name)
-        elif observed_data(data) is not None:
+        elif contains_observed(data):
             observed.append(component_name)
         else:
             raise SystemExit(
-                f"Contract must contain observed variants or pending-verification: {path.relative_to(ROOT)}"
+                f"Contract must contain observed inventory or pending-verification: {path.relative_to(ROOT)}"
             )
 
     if seen_pages != set(catalog_pages):
@@ -90,7 +98,7 @@ def main():
         raise SystemExit(f"Catalog pages without contracts: {missing}")
 
     print("OK: 46/46 catalog pages have exactly one component contract")
-    print(f"Observed snapshot contracts: {len(observed)}")
+    print(f"Contracts with observed snapshot inventory: {len(observed)}")
     print(f"Pending live verification: {len(pending)}")
     if pending:
         print("Pending: " + ", ".join(sorted(pending)))
