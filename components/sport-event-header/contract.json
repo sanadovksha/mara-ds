@@ -1,0 +1,19 @@
+{
+  "component": "Sport Event Header",
+  "source": {"figmaPage": "❖ Sport Event Header", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": {
+    "Device": ["Web"],
+    "Logged": ["On. Open Menu", "Off.Open Menu"]
+  },
+  "observedNestedPatterns": {
+    "Status": ["Bell On 1", "Bell Off 1"],
+    "mediaProperty": ["Frame", "T-shirt", "Team Logo", "Photo", "Empty Photo"]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Device", "Logged"],
+    "notes": [
+      "Status and media-related values were observed near the event-header data but may belong to nested dependencies.",
+      "Do not flatten nested media variants into the top-level header contract without a matching Figma component-set inspection."
+    ]
+  }
+}
