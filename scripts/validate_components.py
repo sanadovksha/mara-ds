@@ -26,6 +26,14 @@ REQUIRED = [
     COMPONENTS / "sport-top-card" / "contract.json",
     COMPONENTS / "sport-tournament-header" / "contract.json",
     COMPONENTS / "markets" / "contract.json",
+    COMPONENTS / "casino-cards" / "contract.json",
+    COMPONENTS / "bonus" / "contract.json",
+    COMPONENTS / "bottomsheet-betslip" / "contract.json",
+    COMPONENTS / "banners" / "contract.json",
+    COMPONENTS / "navigation" / "contract.json",
+    COMPONENTS / "profile" / "contract.json",
+    COMPONENTS / "history-cards" / "contract.json",
+    COMPONENTS / "footer" / "contract.json",
 ]
 
 
@@ -65,6 +73,14 @@ def main() -> None:
         "sport-top-card": "Sport Top Card",
         "sport-tournament-header": "Sport Tournament Header",
         "markets": "Markets",
+        "casino-cards": "Casino Cards",
+        "bonus": "Bonus",
+        "bottomsheet-betslip": "Bottomsheet Cards / Betslip",
+        "banners": "Banners",
+        "navigation": "Navigation",
+        "profile": "Profile",
+        "history-cards": "History Cards",
+        "footer": "Footer",
     }
     for folder, component_name in expected.items():
         path = COMPONENTS / folder / "contract.json"
