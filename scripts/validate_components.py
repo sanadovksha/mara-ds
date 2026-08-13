@@ -5,6 +5,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 COMPONENTS = ROOT / "components"
+SCHEMA_VERSION = 1
+REQUIRED_KEYS = {
+    "schemaVersion", "component", "source", "verification", "variants",
+    "subcomponents", "evidence", "normalization",
+}
 EXPECTED = {
     "button": "Button", "text-field": "Text Field", "form-controls": "Form Controls", "tabs": "Tabs",
     "modal": "Modal", "dropdown": "DropDown", "select": "Select", "search-input": "Search Input",
@@ -26,32 +31,6 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def contains_observed(value):
-    if isinstance(value, dict):
-        for key, child in value.items():
-            if key.startswith("observed") and child not in (None, [], {}):
-                return True
-            if contains_observed(child):
-                return True
-    if isinstance(value, list):
-        return any(contains_observed(item) for item in value)
-    return False
-
-
-def is_pending(data):
-    value = data.get("verification")
-    return value == "pending-verification" or (
-        isinstance(value, dict) and value.get("status") == "pending-verification"
-    )
-
-
-def has_recommendation_list(normalization):
-    return any(
-        key.startswith("recommended") and isinstance(value, list)
-        for key, value in normalization.items()
-    )
-
-
 def main():
     catalog = load(COMPONENTS / "catalog.json")
     pages = catalog.get("componentPages")
@@ -59,40 +38,68 @@ def main():
         raise SystemExit("Component coverage must be 46/46")
 
     seen = set()
-    pending = []
     observed = []
-    for folder, name in EXPECTED.items():
+    pending = []
+
+    for folder, expected_name in EXPECTED.items():
         path = COMPONENTS / folder / "contract.json"
         if not path.exists():
             raise SystemExit(f"Missing contract: {path.relative_to(ROOT)}")
         data = load(path)
-        if data.get("component") != name:
-            raise SystemExit(f"Unexpected component name: {path.relative_to(ROOT)}")
 
-        source = data.get("source", {})
+        if set(data) != REQUIRED_KEYS:
+            missing = sorted(REQUIRED_KEYS - set(data))
+            extra = sorted(set(data) - REQUIRED_KEYS)
+            raise SystemExit(f"Schema v1 key mismatch in {path.relative_to(ROOT)}; missing={missing}, extra={extra}")
+        if data["schemaVersion"] != SCHEMA_VERSION:
+            raise SystemExit(f"Unexpected schemaVersion in {path.relative_to(ROOT)}")
+        if data["component"] != expected_name:
+            raise SystemExit(f"Unexpected component name in {path.relative_to(ROOT)}")
+
+        source = data["source"]
+        if not isinstance(source, dict):
+            raise SystemExit(f"Invalid source in {path.relative_to(ROOT)}")
         page = source.get("figmaPage")
-        if source.get("status") != "snapshot-derived" or page not in pages or page in seen:
-            raise SystemExit(f"Invalid or duplicate source page: {path.relative_to(ROOT)}")
+        if source.get("snapshot") != "designsystem-opt.fig" or source.get("status") != "snapshot-derived":
+            raise SystemExit(f"Invalid source metadata in {path.relative_to(ROOT)}")
+        if page not in pages or page in seen:
+            raise SystemExit(f"Invalid or duplicate source page in {path.relative_to(ROOT)}")
         seen.add(page)
 
-        normalization = data.get("normalization", {})
-        if not isinstance(normalization, dict) or not normalization.get("notes"):
-            raise SystemExit(f"Missing normalization notes: {path.relative_to(ROOT)}")
+        verification = data["verification"]
+        if not isinstance(verification, dict):
+            raise SystemExit(f"verification must be an object in {path.relative_to(ROOT)}")
+        status = verification.get("status")
+        if status not in {"observed", "pending-verification"} or not verification.get("reason"):
+            raise SystemExit(f"Invalid verification in {path.relative_to(ROOT)}")
 
-        if is_pending(data):
-            pending.append(name)
-            continue
+        for key in ("variants", "subcomponents", "evidence"):
+            if not isinstance(data[key], dict):
+                raise SystemExit(f"{key} must be an object in {path.relative_to(ROOT)}")
 
-        if not contains_observed(data):
-            raise SystemExit(f"No observed inventory or pending status: {path.relative_to(ROOT)}")
-        if not has_recommendation_list(normalization):
-            raise SystemExit(f"Observed contract lacks recommendation list: {path.relative_to(ROOT)}")
-        observed.append(name)
+        normalization = data["normalization"]
+        if not isinstance(normalization, dict):
+            raise SystemExit(f"Invalid normalization in {path.relative_to(ROOT)}")
+        if set(normalization) != {"recommendedPropertyNames", "notes", "details"}:
+            raise SystemExit(f"Normalization schema mismatch in {path.relative_to(ROOT)}")
+        if not isinstance(normalization["recommendedPropertyNames"], list):
+            raise SystemExit(f"recommendedPropertyNames must be a list in {path.relative_to(ROOT)}")
+        if not isinstance(normalization["notes"], list) or not normalization["notes"]:
+            raise SystemExit(f"notes must be a non-empty list in {path.relative_to(ROOT)}")
+        if not isinstance(normalization["details"], dict):
+            raise SystemExit(f"details must be an object in {path.relative_to(ROOT)}")
+
+        if status == "observed":
+            if not any(data[key] for key in ("variants", "subcomponents", "evidence")):
+                raise SystemExit(f"Observed contract has no evidence in {path.relative_to(ROOT)}")
+            observed.append(expected_name)
+        else:
+            pending.append(expected_name)
 
     if seen != set(pages):
         raise SystemExit(f"Catalog pages without contracts: {sorted(set(pages) - seen)}")
 
-    print("OK: 46/46 catalog pages have exactly one contract")
+    print("OK: 46/46 contracts conform to Component Contract Schema v1")
     print(f"Observed snapshot contracts: {len(observed)}")
     print(f"Pending live verification: {len(pending)}")
     if pending:
