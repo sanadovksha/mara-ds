@@ -1,0 +1,54 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+COMPONENTS = ROOT / "components"
+REQUIRED = [
+    COMPONENTS / "catalog.json",
+    COMPONENTS / "button" / "contract.json",
+    COMPONENTS / "text-field" / "contract.json",
+    COMPONENTS / "form-controls" / "contract.json",
+    COMPONENTS / "tabs" / "contract.json",
+]
+
+
+def load_json(path: Path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Invalid JSON: {path.relative_to(ROOT)}: {exc}") from exc
+
+
+def main() -> None:
+    missing = [p.relative_to(ROOT) for p in REQUIRED if not p.exists()]
+    if missing:
+        raise SystemExit("Missing component files: " + ", ".join(map(str, missing)))
+
+    catalog = load_json(REQUIRED[0])
+    if catalog.get("summary", {}).get("componentPages") != 46:
+        raise SystemExit("Component page count mismatch: expected 46")
+
+    expected = {
+        "button": "Button",
+        "text-field": "Text Field",
+        "form-controls": "Form Controls",
+        "tabs": "Tabs",
+    }
+    for folder, component_name in expected.items():
+        path = COMPONENTS / folder / "contract.json"
+        data = load_json(path)
+        if data.get("component") != component_name:
+            raise SystemExit(f"Unexpected component name in {path.relative_to(ROOT)}")
+        source = data.get("source", {})
+        if source.get("status") != "snapshot-derived":
+            raise SystemExit(f"Missing snapshot-derived status in {path.relative_to(ROOT)}")
+        if not source.get("figmaPage"):
+            raise SystemExit(f"Missing Figma page in {path.relative_to(ROOT)}")
+
+    print("Component contracts valid: 4 normalized families; catalog pages: 46")
+
+
+if __name__ == "__main__":
+    main()
