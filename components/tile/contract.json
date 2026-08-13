@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "component": "Tile",
   "source": {"figmaPage": "❖ Tile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "verification": {"status": "observed", "reason": "Exact Tile / Collapse properties are present in the uploaded .fig snapshot."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Tile family is confirmed by the uploaded Figma snapshot."], "details": {}}
+  "subcomponents": {"Tile / Collapse": {"Level": ["One", "Two"], "State": ["Regular", "Hover", "Disable"], "Variant": ["Group", "Separate"]}},
+  "evidence": {"componentSetNodeId": "44072:24169"},
+  "normalization": {"recommendedPropertyNames": ["Level", "State", "Variant"], "notes": ["Only the exact Tile / Collapse component set is promoted to observed evidence."], "details": {}}
 }
