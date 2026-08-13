@@ -1,0 +1,7 @@
+{
+  "component": "Footer",
+  "source": {"figmaPage": "❖ Footer", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
+  "observedVariantSignature": {},
+  "verification": {"status": "pending-verification", "reason": "The Footer page is confirmed in the uploaded snapshot; exact published top-level properties are not distinguishable reliably from nested content using the aggregate variant index alone."},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep layout/platform differences separate from content groups when the exact Footer component set is verified.", "Do not infer Footer variants from generic Size/Type signatures without direct node evidence."]}
+}
