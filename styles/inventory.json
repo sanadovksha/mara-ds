@@ -1,19 +1,26 @@
 {
-  "source": "Figma Design System",
   "figmaFileKey": "cUFnNueMAuBe5RKObSu6c7",
-  "counts": {
+  "activeFigmaApiCounts": {
     "text": 93,
     "paint": 19,
     "effect": 14,
     "grid": 4
   },
-  "textStylesExported": 50,
-  "textStylesPending": 43,
-  "detailsStatus": {
-    "text": "partial",
-    "paint": "pending",
-    "effect": "pending",
-    "grid": "pending"
+  "uploadedFilePublishableSnapshot": {
+    "source": "designsystem-opt.fig",
+    "text": 102,
+    "paint": 26,
+    "effect": 14,
+    "grid": 9,
+    "files": [
+      "styles/file-snapshot/typography-1.json",
+      "styles/file-snapshot/typography-2.json",
+      "styles/file-snapshot/typography-3.json",
+      "styles/file-snapshot/paint.json",
+      "styles/file-snapshot/effects.json",
+      "styles/file-snapshot/grids.json"
+    ]
   },
-  "note": "Detailed style export is incomplete because the connected Figma Starter plan reached its MCP tool-call limit. Counts are taken directly from Figma and should not be inferred or edited manually."
+  "status": "complete-file-snapshot",
+  "note": "The uploaded .fig archive contains more publishable style records than Figma Plugin API currently returns as active local styles. The repository preserves the complete file snapshot and keeps the API counts separately instead of guessing which file records Figma hides or treats as legacy."
 }
