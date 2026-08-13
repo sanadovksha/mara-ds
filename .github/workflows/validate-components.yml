@@ -1,4 +1,4 @@
-name: Validate component contracts
+name: Validate component coverage
 
 on:
   pull_request:
@@ -17,13 +17,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Validate component contracts
-        run: python scripts/validate_components.py
+      - run: python scripts/validate_components.py

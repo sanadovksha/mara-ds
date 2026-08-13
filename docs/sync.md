@@ -2,10 +2,10 @@
 
 ## Ownership
 
-- **Figma** is the source of truth for visual component definitions and design variables.
-- **GitHub** is the reviewable/distributable representation used by engineering and automation.
+- **Figma** is the source of truth for visual component definitions, design variables, and active styles.
+- **GitHub** is the reviewable/distributable snapshot used by engineering and automation.
 
-## Flow
+## Current flow
 
 ```text
 Figma Design System
@@ -14,38 +14,55 @@ Figma Design System
   ├─ text/paint/effect/grid styles
   └─ component families
           ↓
-      export/normalize
+      export / normalize
           ↓
 GitHub pull request
-  ├─ tokens/*.json
+  ├─ tokens/core/*.json
+  ├─ tokens/semantic/*.json
+  ├─ tokens/export-manifest.json
+  ├─ styles/*
+  ├─ components/*/contract.json
   ├─ figma/manifest.json
-  ├─ components/*
   └─ docs/*
+          ↓
+       CI validation
+          ↓
+         main
 ```
 
 ## Rules
 
-1. Token values are changed in Figma first.
-2. GitHub token exports are generated artifacts; do not edit them manually.
-3. Figma aliases should be resolved to literal values in exported consumer files.
-4. Semantic token names retain their Figma hierarchy.
+1. Token and visual-component changes are made in Figma first.
+2. Generated token values are not hand-edited in GitHub.
+3. Figma aliases are resolved to literal values in consumer token exports.
+4. Semantic token names retain the Figma `/` hierarchy.
 5. Changes are reviewed through a pull request before reaching `main`.
 6. Component-to-code mappings are added only when a production implementation exists.
+7. `pending-verification` component contracts must not be treated as authoritative production APIs.
 
 ## Current source snapshot
-
-At initial import the Figma file contains:
 
 - 47 pages
 - 813 variables
 - 425 `Core Colors`
 - 388 `Color System` variables
 - 4 semantic modes: Light/Dark × COM/RU
-- 93 text styles
-- 19 paint styles
-- 14 effect styles
-- 4 grid styles
+- 93 active text styles
+- 19 active paint styles
+- 14 active effect styles
+- 4 active grid styles
+- 46 dedicated component pages
 
-## Next automation step
+The uploaded `.fig` archive contains additional publishable/legacy style and component records. Those are preserved as offline inventory rather than silently promoted to the active Figma API set.
 
-Add a repeatable exporter that writes `tokens/core-colors.json` and `tokens/color-system.json` from Figma, then validates generated output in CI. The exporter should fail on duplicate normalized token names, unresolved aliases, or unsupported value types.
+## Validation
+
+`python scripts/validate_tokens.py` validates token coverage, partition counts, semantic modes, duplicate semantic names, supported value types, color syntax, and unresolved Figma alias objects.
+
+`python scripts/validate_components.py` validates 46/46 component-page coverage, source metadata, and reports how many contracts remain `pending-verification`.
+
+GitHub Actions run these checks on relevant pull requests and pushes to `main`.
+
+## Remaining automation work
+
+A repeatable live Figma exporter is still desirable so future updates can regenerate the repository deterministically without relying on a manually uploaded `.fig` snapshot. Code Connect remains a separate follow-up once production component paths and a supported Figma seat are available.
