@@ -1,7 +1,24 @@
 {
+  "schemaVersion": 1,
   "component": "Custom Keyboard",
-  "source": {"figmaPage": "❖ Custom Keyboard", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Custom Keyboard family is confirmed by the uploaded Figma snapshot.", "Verify layout and key-state properties against the live published component set before defining code-facing props."]}
+  "source": {
+    "figmaPage": "❖ Custom Keyboard",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": {
+    "status": "pending-verification",
+    "reason": "The component family is confirmed by the uploaded Figma snapshot; live published properties still require verification."
+  },
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {
+    "recommendedPropertyNames": [],
+    "notes": [
+      "The Custom Keyboard family is confirmed by the uploaded Figma snapshot.",
+      "Verify layout and key-state properties against the live published component set before defining code-facing props."
+    ],
+    "details": {}
+  }
 }
