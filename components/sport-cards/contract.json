@@ -2,9 +2,12 @@
   "schemaVersion": 1,
   "component": "Sport Cards",
   "source": {"figmaPage": "❖ Sport Cards", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "verification": {"status": "observed", "reason": "Named Sport Cards component sets and their variant domains were recovered from the uploaded .fig snapshot; live publication status is not asserted."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {"pagePresent": true, "stableVariantMatrixRecovered": false},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The snapshot confirms this component page."], "details": {}}
+  "subcomponents": {
+    "Mobile Tournament Card / Cybersport": {"nodeId": "42710:51", "Variant": ["Tournament", "No Image", "All", "Shimmer", "Star"]},
+    "Mobile Tournament Card / Cybersport / Game": {"nodeId": "42710:57", "Variant": ["Tournament", "No Image", "Favorites", "All", "Shimmer"], "componentProperties": ["Show Logo BG"]}
+  },
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": ["Variant"], "notes": ["The snapshot exposes multiple Sport Card component sets rather than one universal matrix.", "Show Logo BG is observed as a component property; its value domain is not inferred here."], "details": {}}
 }

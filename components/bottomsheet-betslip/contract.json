@@ -2,9 +2,11 @@
   "schemaVersion": 1,
   "component": "Bottomsheet Cards / Betslip",
   "source": {"figmaPage": "❖ Bottomsheet Cards / Betslip", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "verification": {"status": "observed", "reason": "A named Bottomsheet component set and Betslip-specific component nodes were recovered from the uploaded .fig snapshot; live publication status is not asserted."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The page/family is confirmed by the uploaded snapshot.", "Keep state, selection state and layout/device concerns separate when the exact component set is verified."], "details": {}}
+  "subcomponents": {
+    "Bottomsheet for Edit Bet": {"nodeId": "44075:1814", "State": ["Default"]}
+  },
+  "evidence": {"relatedNodes": [{"name": "Bottomsheet for BetSlip", "nodeId": "44075:2089"}]},
+  "normalization": {"recommendedPropertyNames": ["State"], "notes": ["Only the exact property values exposed by the snapshot are documented.", "Do not infer additional Betslip states from nested sportsbook components."], "details": {}}
 }

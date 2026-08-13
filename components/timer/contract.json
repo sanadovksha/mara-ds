@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "component": "Timer",
   "source": {"figmaPage": "❖ Timer", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "The dedicated Timer component set and its recovered Property 1 values were found in the uploaded .fig snapshot; live publication status is not asserted."},
+  "variants": {"Property 1": ["Default", "Red status", "Finished", "100", "Info"]},
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Timer family is confirmed by the uploaded snapshot."], "details": {}}
+  "evidence": {"componentSet": {"name": "Timer", "nodeId": "42548:8777"}},
+  "normalization": {"recommendedPropertyNames": ["State"], "notes": ["Property 1 is preserved as the observed Figma name.", "Rename it in Figma before mapping to a production API; the mixed semantic values should also be reviewed."], "details": {}}
 }

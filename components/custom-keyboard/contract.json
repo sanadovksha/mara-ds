@@ -1,24 +1,10 @@
 {
   "schemaVersion": 1,
   "component": "Custom Keyboard",
-  "source": {
-    "figmaPage": "❖ Custom Keyboard",
-    "snapshot": "designsystem-opt.fig",
-    "status": "snapshot-derived"
-  },
-  "verification": {
-    "status": "pending-verification",
-    "reason": "The component family is confirmed by the uploaded Figma snapshot; live published properties still require verification."
-  },
-  "variants": {},
+  "source": {"figmaPage": "❖ Custom Keyboard", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "observed", "reason": "The Keyboard/Numpad component set and both Dark variants were recovered from the uploaded .fig snapshot; live publication status is not asserted."},
+  "variants": {"Dark": ["Off", "On"]},
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {
-    "recommendedPropertyNames": [],
-    "notes": [
-      "The Custom Keyboard family is confirmed by the uploaded Figma snapshot.",
-      "Verify layout and key-state properties against the live published component set before defining code-facing props."
-    ],
-    "details": {}
-  }
+  "evidence": {"componentSet": {"name": "Keyboard/Numpad", "nodeId": "24257:156"}, "variantNodes": {"Off": "24257:157", "On": "24257:158"}},
+  "normalization": {"recommendedPropertyNames": ["Dark"], "notes": ["Dark is preserved as the source property name.", "Production theming may eventually come from theme context rather than a public boolean prop."], "details": {}}
 }
