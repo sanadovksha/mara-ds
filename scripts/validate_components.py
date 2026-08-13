@@ -45,6 +45,13 @@ def is_pending(data):
     )
 
 
+def has_recommendation_list(normalization):
+    return any(
+        key.startswith("recommended") and isinstance(value, list)
+        for key, value in normalization.items()
+    )
+
+
 def main():
     catalog = load(COMPONENTS / "catalog.json")
     pages = catalog.get("componentPages")
@@ -61,6 +68,7 @@ def main():
         data = load(path)
         if data.get("component") != name:
             raise SystemExit(f"Unexpected component name: {path.relative_to(ROOT)}")
+
         source = data.get("source", {})
         page = source.get("figmaPage")
         if source.get("status") != "snapshot-derived" or page not in pages or page in seen:
@@ -68,17 +76,18 @@ def main():
         seen.add(page)
 
         normalization = data.get("normalization", {})
-        if not normalization.get("notes"):
+        if not isinstance(normalization, dict) or not normalization.get("notes"):
             raise SystemExit(f"Missing normalization notes: {path.relative_to(ROOT)}")
-        if not any(k.startswith("recommended") and isinstance(v, list) for k, v in normalization.items()):
-            raise SystemExit(f"Missing normalization recommendation list: {path.relative_to(ROOT)}")
 
         if is_pending(data):
             pending.append(name)
-        elif contains_observed(data):
-            observed.append(name)
-        else:
+            continue
+
+        if not contains_observed(data):
             raise SystemExit(f"No observed inventory or pending status: {path.relative_to(ROOT)}")
+        if not has_recommendation_list(normalization):
+            raise SystemExit(f"Observed contract lacks recommendation list: {path.relative_to(ROOT)}")
+        observed.append(name)
 
     if seen != set(pages):
         raise SystemExit(f"Catalog pages without contracts: {sorted(set(pages) - seen)}")
