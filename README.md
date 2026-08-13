@@ -48,32 +48,35 @@ docs/
   sync.md
 
 scripts/
+  format_json.py
   validate_tokens.py
   validate_components.py
 ```
 
 ## Component contract status
 
-A component contract can contain a verified observed variant signature or be marked `pending-verification`. `pending-verification` means the component family is confirmed, but the offline `.fig` snapshot cannot reliably distinguish the current top-level public API from nested or legacy variants.
+A component contract can contain an observed variant signature or be marked `pending-verification`. `pending-verification` means the component family is confirmed, but the offline `.fig` snapshot cannot reliably distinguish the current top-level public API from nested or legacy variants.
 
 Do not treat `pending-verification` contracts as production component APIs until they are checked against live published Figma metadata.
 
-## Validation
-
-Run locally:
+## Local commands
 
 ```bash
+python scripts/format_json.py
 python scripts/validate_tokens.py
 python scripts/validate_components.py
 ```
 
-The same checks run in GitHub Actions on relevant pull requests and on pushes to `main`.
+`format_json.py` gives generated JSON stable two-space formatting so future pull-request diffs are readable. Run it after regenerating snapshot files.
+
+The validation scripts also run in GitHub Actions on relevant pull requests and on pushes to `main`.
 
 ## Change workflow
 
 1. Make design-token and visual-component changes in Figma first.
 2. Regenerate/export the GitHub snapshot.
-3. Review changes through a pull request.
-4. Keep generated token values out of manual GitHub edits.
+3. Run the JSON formatter and validation scripts.
+4. Review changes through a pull request.
+5. Keep generated token values out of manual GitHub edits.
 
 See [`docs/sync.md`](docs/sync.md) for the synchronization contract and known limitations.
