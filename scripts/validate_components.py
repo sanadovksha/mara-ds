@@ -50,6 +50,9 @@ EXPECTED = {
     "captcha": "Captcha",
     "3ds": "3DS",
     "empty-pages": "Empty Pages",
+    "icons": "Icons",
+    "password-create-block": "Password Create Block",
+    "tooltip-new-feature": "Tooltip new feature",
 }
 
 REQUIRED = [COMPONENTS / "catalog.json"] + [
@@ -73,6 +76,9 @@ def main() -> None:
     if catalog.get("summary", {}).get("componentPages") != 46:
         raise SystemExit("Component page count mismatch: expected 46")
 
+    if len(EXPECTED) != 46:
+        raise SystemExit(f"Component contract coverage mismatch: expected 46, got {len(EXPECTED)}")
+
     for folder, component_name in EXPECTED.items():
         path = COMPONENTS / folder / "contract.json"
         data = load_json(path)
@@ -86,7 +92,7 @@ def main() -> None:
         if not data.get("normalization", {}).get("notes"):
             raise SystemExit(f"Missing normalization notes in {path.relative_to(ROOT)}")
 
-    print(f"Component contracts valid: {len(EXPECTED)} normalized families; catalog pages: 46")
+    print("Component contracts valid: 46/46 component pages covered")
 
 
 if __name__ == "__main__":
