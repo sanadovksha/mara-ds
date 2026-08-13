@@ -29,6 +29,14 @@ def load(path: Path):
         raise SystemExit(f"Invalid JSON: {path.relative_to(ROOT)}: {exc}") from exc
 
 
+def observed_data(data):
+    if data.get("observedVariantSignature") is not None:
+        return data["observedVariantSignature"]
+    if data.get("observedVariants") is not None:
+        return data["observedVariants"]
+    return None
+
+
 def main():
     catalog_path = COMPONENTS / "catalog.json"
     if not catalog_path.exists():
@@ -68,15 +76,13 @@ def main():
         if not normalization.get("notes"):
             raise SystemExit(f"Missing normalization notes in {path.relative_to(ROOT)}")
 
-        signature = data.get("observedVariantSignature")
-        verification = data.get("verification")
-        if verification == "pending-verification":
+        if data.get("verification") == "pending-verification":
             pending.append(component_name)
-        elif signature is not None:
+        elif observed_data(data) is not None:
             observed.append(component_name)
         else:
             raise SystemExit(
-                f"Contract must contain observedVariantSignature or pending-verification: {path.relative_to(ROOT)}"
+                f"Contract must contain observed variants or pending-verification: {path.relative_to(ROOT)}"
             )
 
     if seen_pages != set(catalog_pages):
@@ -84,7 +90,7 @@ def main():
         raise SystemExit(f"Catalog pages without contracts: {missing}")
 
     print("OK: 46/46 catalog pages have exactly one component contract")
-    print(f"Observed snapshot signatures: {len(observed)}")
+    print(f"Observed snapshot contracts: {len(observed)}")
     print(f"Pending live verification: {len(pending)}")
     if pending:
         print("Pending: " + ", ".join(sorted(pending)))
