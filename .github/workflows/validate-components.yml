@@ -1,0 +1,29 @@
+name: Validate component contracts
+
+on:
+  pull_request:
+    paths:
+      - "components/**"
+      - "scripts/validate_components.py"
+      - ".github/workflows/validate-components.yml"
+  push:
+    branches: [main]
+    paths:
+      - "components/**"
+      - "scripts/validate_components.py"
+      - ".github/workflows/validate-components.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate component contracts
+        run: python scripts/validate_components.py
