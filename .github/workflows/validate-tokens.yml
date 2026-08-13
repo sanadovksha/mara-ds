@@ -1,0 +1,29 @@
+name: Validate design tokens
+
+on:
+  pull_request:
+    paths:
+      - "tokens/**"
+      - "scripts/validate_tokens.py"
+      - ".github/workflows/validate-tokens.yml"
+  push:
+    branches: [main]
+    paths:
+      - "tokens/**"
+      - "scripts/validate_tokens.py"
+      - ".github/workflows/validate-tokens.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate token files
+        run: python scripts/validate_tokens.py

@@ -1,0 +1,7 @@
+{
+  "component": "Bottomsheet Cards / Betslip",
+  "source": {"figmaPage": "❖ Bottomsheet Cards / Betslip", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
+  "observedVariantSignature": {},
+  "verification": {"status": "pending-verification", "reason": "The page/family is confirmed; the uploaded snapshot contains nested sportsbook structures that prevent safe assignment of file-level variant signatures to the top-level component."},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Treat Betslip state, selection state and layout/device concerns as separate concepts when the exact component set is verified.", "Do not reuse Sport Event or generic card signatures as a substitute for Betslip properties."]}
+}

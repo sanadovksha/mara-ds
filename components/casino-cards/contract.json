@@ -1,0 +1,21 @@
+{
+  "component": "Casino Cards",
+  "source": {
+    "figmaPage": "❖ Casino Cards",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived",
+    "evidenceLevel": "family-confirmed-properties-pending"
+  },
+  "observedVariantSignature": {},
+  "verification": {
+    "status": "pending-verification",
+    "reason": "The uploaded .fig confirms the component family/page, but the top-level property matrix cannot be isolated reliably from nested/legacy variants without the published-component API."
+  },
+  "normalization": {
+    "recommendedPropertyNames": [],
+    "notes": [
+      "Do not infer casino-card types or states from unrelated Type/State signatures in the file-level inventory.",
+      "Populate properties only after the published component set can be queried or its exact node can be isolated from the snapshot."
+    ]
+  }
+}

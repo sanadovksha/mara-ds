@@ -1,0 +1,7 @@
+{
+  "component": "History Cards",
+  "source": {"figmaPage": "❖ History Cards", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
+  "observedVariantSignature": {},
+  "verification": {"status": "pending-verification", "reason": "History Cards is confirmed as a dedicated page; exact top-level variants cannot be isolated safely from the uploaded snapshot without node-level published-component metadata."},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Separate history item type/status from interaction state once the exact component set is available.", "Do not reuse sportsbook card signatures as History Cards properties without direct evidence."]}
+}

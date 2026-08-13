@@ -1,0 +1,7 @@
+{
+  "component": "Tile",
+  "source": {"figmaPage": "❖ Tile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Tile family is confirmed by the uploaded Figma snapshot.", "Verify active visual variants against the live published component set before defining a production API."]}
+}

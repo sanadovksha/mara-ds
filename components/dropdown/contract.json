@@ -1,0 +1,34 @@
+{
+  "component": "DropDown",
+  "source": {
+    "figmaPage": "❖ DropDown",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedSubcomponents": {
+    "Right frame": {
+      "Type": ["Link", "Select", "Collapse", "Expand"]
+    },
+    "Menu Tab": {
+      "Active": ["Off", "On"],
+      "State": ["Regular", "Hover"],
+      "Type": ["Text + Icon", "Icon", "Dropdown"]
+    },
+    "Options / Item": {
+      "observedExampleProperties": ["State", "Type", "Colour"],
+      "observedExample": {
+        "State": "Focused Selected",
+        "Type": "No Icon",
+        "Colour": "Blue"
+      }
+    }
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Type", "Active", "State", "Colour"],
+    "notes": [
+      "The snapshot contains several DropDown-related component sets rather than one single exhaustive variant signature.",
+      "The menu-tab signature is well-defined in the snapshot; the Options / Item values are recorded conservatively because the snapshot contains multiple legacy generations of the component.",
+      "Do not merge DropDown and Select contracts solely because some nested elements share names or token groups."
+    ]
+  }
+}

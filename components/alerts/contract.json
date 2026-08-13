@@ -1,0 +1,25 @@
+{
+  "component": "Alerts",
+  "source": {
+    "figmaPage": "❖ Alerts",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedSubcomponents": {
+    "Notification": {
+      "State": ["None", "Success", "Alert"]
+    },
+    "Check": {
+      "Active": ["Yes", "No"],
+      "State": ["Regular", "Hover", "Disable"]
+    }
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["State", "Active"],
+    "notes": [
+      "The Alerts page contains multiple reusable elements; they are preserved as subcomponents instead of being flattened into one Alert API.",
+      "The snapshot value `Disable` is preserved exactly and is a naming-cleanup candidate if the Figma library standardizes on `Disabled`.",
+      "Notification severity naming should be reviewed before mapping to production semantics because `Alert` is used as a state value as well as a page/family concept."
+    ]
+  }
+}

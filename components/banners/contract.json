@@ -1,0 +1,7 @@
+{
+  "component": "Banners",
+  "source": {"figmaPage": "❖ Banners", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived", "evidenceLevel": "family-confirmed-properties-pending"},
+  "observedVariantSignature": {},
+  "verification": {"status": "pending-verification", "reason": "The Banners page is confirmed by the snapshot, but its exact published variant matrix cannot be distinguished reliably from nested banner content."},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep content/promo category separate from visual state when the component set is verified.", "Do not infer banner variants from generic Type values in the file-level inventory."]}
+}

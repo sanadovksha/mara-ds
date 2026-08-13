@@ -1,0 +1,27 @@
+{
+  "component": "Tooltips",
+  "source": {
+    "figmaPage": "❖ Tooltips",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedVariantSignatures": [
+    {
+      "componentSet": ".Tooltip",
+      "State": ["Top", "Left", "Right", "Bottom"]
+    },
+    {
+      "componentSet": ".Tooltip",
+      "Arrow position": ["Left", "Bottom", "Top", "Right"]
+    }
+  ],
+  "observedRelatedTypes": ["Change KF Neutral", "Text Center", "Link Center", "Change KF Down"],
+  "normalization": {
+    "recommendedPropertyNames": ["Placement", "Arrow position", "Type"],
+    "notes": [
+      "The snapshot contains more than one Tooltip component set with overlapping direction semantics.",
+      "`Placement` is a recommended normalized name for the source property `State` when that property represents Top/Left/Right/Bottom; it is not a source rename performed by this export.",
+      "Before production mapping, consolidate or clearly separate tooltip placement from arrow position to avoid two competing direction APIs."
+    ]
+  }
+}

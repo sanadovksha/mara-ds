@@ -1,0 +1,21 @@
+{
+  "component": "Text Field",
+  "source": {
+    "figmaPage": "❖ Text Fields",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedVariants": {
+    "Size": ["medium", "large", "xlarge"],
+    "State": ["Empty", "Empty Hover", "Active", "Filled", "Filled Hover", "Error", "Error Filled", "Disable"],
+    "outlined": [false]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Size", "State", "Outlined"],
+    "notes": [
+      "The snapshot also contains unrelated State+Size signatures elsewhere in the file; only the values listed here were selected from text-input-like signatures.",
+      "Hover can remain a Figma visualization state even if production code implements it through CSS or platform interaction state.",
+      "The lowercase Figma property `outlined` is preserved as observed; `Outlined` is the recommended normalized name for future cleanup."
+    ]
+  }
+}

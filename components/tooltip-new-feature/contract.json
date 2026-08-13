@@ -1,0 +1,17 @@
+{
+  "component": "Tooltip new feature",
+  "source": {
+    "figmaPage": "❖ Tooltip new feature",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": "pending-verification",
+  "observedVariantSignature": null,
+  "normalization": {
+    "notes": [
+      "Keep this family separate from the existing Tooltips contract until Figma confirms whether it is a replacement, experiment or product-specific extension.",
+      "The snapshot confirms the page but does not provide enough reliable context to merge its API with Tooltips.",
+      "Verify current publication status and ownership before production mapping."
+    ]
+  }
+}

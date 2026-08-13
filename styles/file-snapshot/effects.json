@@ -1,0 +1,21 @@
+{
+  "source": "designsystem-opt.fig",
+  "styleType": "EFFECT",
+  "count": 14,
+  "styles": [
+    {"name":"Top Menu","effects":[{"type":"DROP_SHADOW","visible":true,"radius":15.0,"spread":0.0,"offset":{"x":0.0,"y":8.0},"blendMode":"NORMAL","color":"#4D4F680D"}]},
+    {"name":"Bottom Menu","effects":[{"type":"DROP_SHADOW","visible":true,"radius":5.0,"spread":0.0,"offset":{"x":0.0,"y":-2.0},"blendMode":"NORMAL","color":"#0000000D"}]},
+    {"name":"Shadow Up","effects":[{"type":"DROP_SHADOW","visible":true,"radius":4.0,"spread":0.0,"offset":{"x":0.0,"y":-4.0},"blendMode":"NORMAL","color":"#15103908"},{"type":"DROP_SHADOW","visible":true,"radius":44.0,"spread":0.0,"offset":{"x":0.0,"y":-4.0},"blendMode":"NORMAL","color":"#1510391A"}]},
+    {"name":"Shadow Overlay 20","effects":[{"type":"DROP_SHADOW","visible":true,"radius":20.0,"spread":0.0,"offset":{"x":0.0,"y":2.0},"blendMode":"NORMAL","color":"#0000004D"}]},
+    {"name":"Shadow 50","effects":[{"type":"DROP_SHADOW","visible":true,"radius":3.0,"spread":0.0,"offset":{"x":0.0,"y":1.0},"blendMode":"NORMAL","color":"#4D4F680D"}]},
+    {"name":"Shadow 100","effects":[{"type":"DROP_SHADOW","visible":true,"radius":3.0,"spread":0.0,"offset":{"x":0.0,"y":1.0},"blendMode":"NORMAL","color":"#4D4F680D"},{"type":"DROP_SHADOW","visible":true,"radius":25.0,"spread":0.0,"offset":{"x":0.0,"y":9.0},"blendMode":"NORMAL","color":"#4D4F6817"}]},
+    {"name":"Blur 10","effects":[{"type":"BACKGROUND_BLUR","visible":true,"radius":10.0,"spread":0.0,"offset":{"x":0.0,"y":4.0},"blendMode":"NORMAL","color":"#00000040"}]},
+    {"name":"Blur 25","effects":[{"type":"BACKGROUND_BLUR","visible":true,"radius":25.0,"spread":0.0,"offset":{"x":0.0,"y":4.0},"blendMode":"NORMAL","color":"#00000040"}]},
+    {"name":"Shadow Overlay 100","effects":[{"type":"DROP_SHADOW","visible":true,"radius":100.0,"spread":-20.0,"offset":{"x":0.0,"y":50.0},"blendMode":"NORMAL","color":"#15103980"}]},
+    {"name":"Shadow 150","effects":[{"type":"DROP_SHADOW","visible":true,"radius":150.0,"spread":0.0,"offset":{"x":0.0,"y":50.0},"blendMode":"NORMAL","color":"#15103933"}]},
+    {"name":"Shadow 75","effects":[{"type":"DROP_SHADOW","visible":true,"radius":2.0,"spread":0.0,"offset":{"x":0.0,"y":1.0},"blendMode":"NORMAL","color":"#4D4F680D"},{"type":"DROP_SHADOW","visible":true,"radius":6.0,"spread":0.0,"offset":{"x":0.0,"y":2.0},"blendMode":"NORMAL","color":"#4D4F6817"}]},
+    {"name":"Blur 5","effects":[{"type":"BACKGROUND_BLUR","visible":true,"radius":5.0,"spread":0.0,"offset":{"x":0.0,"y":4.0},"blendMode":"NORMAL","color":"#00000040"}]},
+    {"name":"Shadow Overlay 40","effects":[{"type":"DROP_SHADOW","visible":true,"radius":40.0,"spread":0.0,"offset":{"x":0.0,"y":2.0},"blendMode":"NORMAL","color":"#0000004D"}]},
+    {"name":"Bonus Inner Shadow","effects":[{"type":"INNER_SHADOW","visible":true,"radius":1.0,"spread":0.0,"offset":{"x":0.0,"y":1.0},"blendMode":"NORMAL","color":"#FFFFFF26"},{"type":"INNER_SHADOW","visible":true,"radius":1.0,"spread":0.0,"offset":{"x":0.0,"y":-1.0},"blendMode":"NORMAL","color":"#0000000A"}]}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "component": "Form Controls",
+  "source": {
+    "figmaPage": "❖ Form Controls",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "checkbox": {
+    "observedVariantSignature": {
+      "Checkbox": ["Off", "On"],
+      "State": ["Disabled", "Focused", "Hover", "Overflow", "Pressed", "Regular"],
+      "Type": ["Default", "Selected"]
+    }
+  },
+  "radio": {
+    "observedPatterns": [
+      "Status=Off, Level=One, State=Regular",
+      "Status=On, Level=One, State=Regular",
+      "Status=On, Level=Two, State=Regular",
+      "Status=Off, Level=Two, State=Hover"
+    ],
+    "note": "The snapshot contains several radio-related patterns with different property naming; they are retained as inventory and should not be collapsed into a single production API without Figma cleanup."
+  },
+  "normalization": {
+    "recommendedCheckboxProperties": ["Checked", "State", "Type"],
+    "notes": [
+      "`Checkbox` is the observed Figma property name; `Checked` is a proposed production-friendly name, not a source rename.",
+      "Focused/Hover/Pressed can be interaction states in code rather than public props.",
+      "Radio requires a separate cleanup pass because the snapshot contains Status/Level/State and other legacy signatures."
+    ]
+  }
+}

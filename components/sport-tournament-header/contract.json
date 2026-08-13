@@ -1,0 +1,14 @@
+{
+  "component": "Sport Tournament Header",
+  "source": {"figmaPage": "❖ Sport Tournament Header", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": {"Property 1": ["Default"]},
+  "observedRelatedPatterns": {"State": ["Default", "Disabled", "Hover"], "Sport": ["TOP", "Default"]},
+  "normalization": {
+    "recommendedPropertyNames": ["State", "Sport"],
+    "notes": [
+      "The snapshot contains the generic label Property 1.",
+      "State and Sport values are also present in the nearby component data.",
+      "Resolve the generic property name in Figma before final component mapping."
+    ]
+  }
+}

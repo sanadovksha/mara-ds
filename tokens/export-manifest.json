@@ -1,0 +1,37 @@
+{
+  "source": "Figma Color System",
+  "figmaFileKey": "cUFnNueMAuBe5RKObSu6c7",
+  "modes": [
+    "Light • COM",
+    "Dark • COM",
+    "Light • RU",
+    "Dark • RU"
+  ],
+  "coreColors": {
+    "total": 425,
+    "files": [
+      "tokens/core/common-a.json",
+      "tokens/core/common-b.json",
+      "tokens/core/light.json",
+      "tokens/core/dark.json"
+    ]
+  },
+  "semantic": {
+    "total": 388,
+    "exported": 388,
+    "coverage": "100%",
+    "partitions": {
+      "foundation": 101,
+      "accents": 44,
+      "uiControls": 113,
+      "components": 130
+    },
+    "files": [
+      "tokens/semantic/foundation.json",
+      "tokens/semantic/accents.json",
+      "tokens/semantic/ui-controls.json",
+      "tokens/semantic/components.json"
+    ]
+  },
+  "totalVariables": 813
+}

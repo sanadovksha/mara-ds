@@ -1,0 +1,7 @@
+{
+  "component": "Slider Nav",
+  "source": {"figmaPage": "❖ Slider Nav", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Slider Nav family is confirmed by the uploaded snapshot.", "Verify active/inactive states, size and orientation against the live published component set before defining a production API."]}
+}
