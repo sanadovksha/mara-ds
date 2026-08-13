@@ -2,9 +2,17 @@
   "schemaVersion": 1,
   "component": "Profile",
   "source": {"figmaPage": "❖ Profile", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "The Profile component page is confirmed, but its published top-level variants are not recoverable with enough confidence from the aggregate snapshot index."},
+  "verification": {"status": "observed", "reason": "The .fig snapshot contains exact Profile-family component-set metadata for Avatar variants."},
   "variants": {},
-  "subcomponents": {},
-  "evidence": {"sourceEvidenceLevel": "family-confirmed-properties-pending"},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["Keep profile row/type semantics separate from interaction states when the exact component sets are verified.", "Do not infer Profile properties from generic Type/State signatures shared by unrelated families."], "details": {}}
+  "subcomponents": {
+    "Avatar": {
+      "Variant": ["Icon", "VIP AB", "VIP A", "VIP"]
+    }
+  },
+  "evidence": {"componentSetNodeId": "43584:0"},
+  "normalization": {
+    "recommendedPropertyNames": ["Variant"],
+    "notes": ["Only the exact Avatar component set is promoted to observed evidence; unrelated Profile row/type signatures are not inferred.", "Publication status is not asserted because live Figma API access is rate-limited."],
+    "details": {}
+  }
 }
