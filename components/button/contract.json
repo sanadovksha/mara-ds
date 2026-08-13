@@ -1,0 +1,23 @@
+{
+  "component": "Button",
+  "source": {
+    "figmaPage": "❖ Buttons",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "observedVariantSignature": {
+    "Size": ["32 / S", "44 / M"],
+    "State": ["Disabled", "Loading", "Normal"],
+    "Style": ["Color", "Commerce", "Outline", "Primary", "Secondary", "Tertiary"],
+    "Theme": ["Day", "Night"],
+    "Type": ["Icon only", "Left icon", "Right icon", "Text"]
+  },
+  "normalization": {
+    "recommendedPropertyNames": ["Size", "State", "Style", "Theme", "Type"],
+    "notes": [
+      "Keep Figma variant labels as the source snapshot; do not rename values in this repository without a matching Figma change.",
+      "Normal/Disabled/Loading are visual states, while hover/pressed/focus may be implemented as interaction states in code rather than public component props.",
+      "Code Connect mapping is pending until production component paths and a supported Figma seat are available."
+    ]
+  }
+}
