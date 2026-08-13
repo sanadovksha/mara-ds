@@ -9,21 +9,22 @@ Component definitions remain in Figma. This directory documents the mapping betw
 
 The live Figma manifest contains 46 dedicated component pages. The uploaded `.fig` snapshot contains 5,897 indexed variant nodes across 168 distinct property signatures. Snapshot counts may include legacy or unpublished variants, so Figma remains the source of truth for what is currently published.
 
+## Normalized contracts
+
+The first component-family contracts are now documented separately:
+
+- `button/contract.json`
+- `text-field/contract.json`
+- `form-controls/contract.json`
+- `tabs/contract.json`
+
+Each contract keeps **observed Figma values** separate from **normalization recommendations**. Recommended names are not treated as changes to the Figma source until they are explicitly applied there.
+
+These contracts are intended to become the stable translation layer between Figma and production code. Future component contracts should use the same structure: source, observed variants/properties, normalization notes, and eventually production implementation / Code Connect metadata.
+
 ## Figma component families
 
 The current Figma file contains dedicated pages for Buttons, Form Controls, Text Fields, Navigation, Tabs, Modals, Tooltips, Sport components, Casino Cards, Banners, Bonus, Icons and other product patterns.
-
-Use one directory per production component when code implementations are added, for example:
-
-```text
-components/
-├── button/
-│   └── README.md
-├── text-field/
-│   └── README.md
-└── tabs/
-    └── README.md
-```
 
 Each component document should capture:
 
@@ -37,6 +38,14 @@ Each component document should capture:
 ## Naming cleanup
 
 The snapshot shows consistent properties such as `State`, `Size` and `Type`, but also legacy generic properties such as `Property 1`. Generic properties should be treated as cleanup candidates and should not be copied directly into production component APIs.
+
+Examples already found during normalization:
+
+- Button has a mature `Size / State / Style / Theme / Type` signature.
+- Text Field contains the lowercase property `outlined`; `Outlined` is suggested only as a future normalization.
+- Checkbox uses a property named `Checkbox` with `Off / On`; `Checked` is a possible production-friendly mapping, not a Figma rename.
+- Tabs contains a `Dark Mode` property at container level; production theming should normally come from the DS theme context rather than a public Tabs prop.
+- Radio patterns need a separate cleanup pass because multiple property signatures coexist in the snapshot.
 
 ## Code Connect
 
