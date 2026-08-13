@@ -1,0 +1,7 @@
+{
+  "component": "Chips",
+  "source": {"figmaPage": "❖ Chips", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family is confirmed by the uploaded Figma snapshot.", "Verify top-level variant properties against the live published component set before defining code-facing props."]}
+}
