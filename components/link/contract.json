@@ -1,0 +1,7 @@
+{
+  "component": "Link",
+  "source": {"figmaPage": "❖ Link", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Link family is confirmed by the uploaded snapshot.", "Do not infer hover/focus/visited as public props until the live component set is verified; these may be interaction states in code."]}
+}
