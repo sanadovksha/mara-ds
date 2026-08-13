@@ -18,6 +18,14 @@ REQUIRED = [
     COMPONENTS / "alerts" / "contract.json",
     COMPONENTS / "toasts" / "contract.json",
     COMPONENTS / "tooltips" / "contract.json",
+    COMPONENTS / "sport-bar" / "contract.json",
+    COMPONENTS / "sport-cards" / "contract.json",
+    COMPONENTS / "sport-event-header" / "contract.json",
+    COMPONENTS / "sport-event-tile" / "contract.json",
+    COMPONENTS / "sport-event-tile-child" / "contract.json",
+    COMPONENTS / "sport-top-card" / "contract.json",
+    COMPONENTS / "sport-tournament-header" / "contract.json",
+    COMPONENTS / "markets" / "contract.json",
 ]
 
 
@@ -49,6 +57,14 @@ def main() -> None:
         "alerts": "Alerts",
         "toasts": "Toasts",
         "tooltips": "Tooltips",
+        "sport-bar": "Sport Bar",
+        "sport-cards": "Sport Cards",
+        "sport-event-header": "Sport Event Header",
+        "sport-event-tile": "Sport Event Tile",
+        "sport-event-tile-child": "Sport Event Tile Child",
+        "sport-top-card": "Sport Top Card",
+        "sport-tournament-header": "Sport Tournament Header",
+        "markets": "Markets",
     }
     for folder, component_name in expected.items():
         path = COMPONENTS / folder / "contract.json"
