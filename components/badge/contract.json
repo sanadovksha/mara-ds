@@ -2,9 +2,13 @@
   "schemaVersion": 1,
   "component": "Badge",
   "source": {"figmaPage": "❖ Badge", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "The family is confirmed by the uploaded Figma snapshot; live published properties still require verification."},
-  "variants": {},
+  "verification": {"status": "observed", "reason": "The uploaded .fig exposes an exact Badge component set with explicit property names and recoverable option values."},
+  "variants": {
+    "Type": ["Badge"],
+    "Store": ["Android", "AppStore", "Huawei", "Mi App Mall", "NashStore", "Rustore", "Galaxy Store"],
+    "Color": ["Off"]
+  },
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family is confirmed by the uploaded Figma snapshot.", "Top-level variant properties cannot be separated reliably from nested or legacy nodes in the offline snapshot; verify against the live published component set before defining a production API."], "details": {}}
+  "evidence": {"componentSetNodeId": "42354:8895", "confirmedProperties": ["Color", "Language", "Store", "Type"]},
+  "normalization": {"recommendedPropertyNames": ["Color", "Language", "Store", "Type"], "notes": ["Store values and property names are read directly from the exact Badge component set.", "Language is confirmed as a property, but its complete option list is not promoted because the string snapshot does not expose it cleanly."], "details": {}}
 }
