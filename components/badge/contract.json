@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Badge",
   "source": {"figmaPage": "❖ Badge", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family is confirmed by the uploaded Figma snapshot.", "Top-level variant properties cannot be separated reliably from nested or legacy nodes in the offline snapshot; verify against the live published component set before defining a production API."]}
+  "verification": {"status": "pending-verification", "reason": "The family is confirmed by the uploaded Figma snapshot; live published properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The component family is confirmed by the uploaded Figma snapshot.", "Top-level variant properties cannot be separated reliably from nested or legacy nodes in the offline snapshot; verify against the live published component set before defining a production API."], "details": {}}
 }

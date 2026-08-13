@@ -1,14 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Sport Cards",
   "source": {"figmaPage": "❖ Sport Cards", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": {},
-  "observedEvidence": {"pagePresent": true, "stableVariantMatrixRecovered": false},
-  "normalization": {
-    "recommendedPropertyNames": [],
-    "notes": [
-      "The snapshot confirms this component page.",
-      "A reliable top-level property matrix was not recovered from the offline string index.",
-      "Keep the contract minimal until the component-set metadata is resolved."
-    ]
-  }
+  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {"pagePresent": true, "stableVariantMatrixRecovered": false},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The snapshot confirms this component page."], "details": {}}
 }

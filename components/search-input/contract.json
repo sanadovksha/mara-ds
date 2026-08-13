@@ -1,29 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Search Input",
-  "source": {
-    "figmaPage": "❖ Search Input",
-    "snapshot": "designsystem-opt.fig",
-    "status": "snapshot-derived"
-  },
-  "observedElements": {
-    "Search Item": {
-      "Type": ["Search", "List"]
-    },
-    ".Search Input Desktop": {
-      "status": "component observed in snapshot",
-      "notes": ["The snapshot shows desktop Search Input instances, but does not expose a clean exhaustive property matrix in the string inventory used for this export."]
-    },
-    "Dropdown wrappers": {
-      "legacyProperty": "Property 1",
-      "observedValues": ["Desktop", "With Subtitles"]
-    }
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["Type", "Platform", "Content"],
-    "notes": [
-      "Do not treat the recommended names as Figma facts: `Platform` and `Content` are proposed replacements for the legacy generic `Property 1` only.",
-      "The current snapshot evidence is intentionally marked partial rather than inferring unobserved Search Input states.",
-      "Rename legacy generic properties in Figma before mirroring them into a production component API."
-    ]
-  }
+  "source": {"figmaPage": "❖ Search Input", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "verification": {"status": "observed", "reason": "Partial Search Input evidence was isolated from the uploaded snapshot."},
+  "variants": {},
+  "subcomponents": {"Search Item": {"variants": {"Type": ["Search", "List"]}}, ".Search Input Desktop": {"variants": {}, "evidence": {"status": "component observed in snapshot"}}, "Dropdown wrappers": {"variants": {}, "evidence": {"legacyProperty": "Property 1", "observedValues": ["Desktop", "With Subtitles"]}}},
+  "evidence": {"coverage": "partial"},
+  "normalization": {"recommendedPropertyNames": ["Type", "Platform", "Content"], "notes": ["The current snapshot evidence is intentionally marked partial rather than inferring unobserved Search Input states."], "details": {}}
 }

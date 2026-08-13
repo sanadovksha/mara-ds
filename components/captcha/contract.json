@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Captcha",
   "source": {"figmaPage": "❖ Captсha", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": null,
-  "verification": "pending-verification",
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Captcha family is confirmed by the uploaded Figma snapshot.", "The Figma page name contains a mixed-script character; keep the exact source page reference while normalizing the production component name to Captcha.", "Verify active states against the live published component set before defining code-facing props."]}
+  "verification": {"status": "pending-verification", "reason": "Live published properties still require verification."},
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Captcha family is confirmed by the uploaded Figma snapshot.", "The Figma page name contains a mixed-script character; keep the exact source page reference while normalizing the production component name to Captcha."], "details": {}}
 }
