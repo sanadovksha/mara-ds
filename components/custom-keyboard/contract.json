@@ -1,0 +1,7 @@
+{
+  "component": "Custom Keyboard",
+  "source": {"figmaPage": "❖ Custom Keyboard", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
+  "observedVariantSignature": null,
+  "verification": "pending-verification",
+  "normalization": {"recommendedPropertyNames": [], "notes": ["The Custom Keyboard family is confirmed by the uploaded Figma snapshot.", "Verify layout and key-state properties against the live published component set before defining code-facing props."]}
+}
