@@ -1,19 +1,10 @@
 {
+  "schemaVersion": 1,
   "component": "Sport Event Tile Child",
   "source": {"figmaPage": "❖ Sport Event Tile Child", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "observedVariantSignature": {
-    "Favorite": ["No", "Yes"],
-    "State": ["Default", "Hover"]
-  },
-  "observedNestedPatterns": {
-    "actionState": ["Add", "Remove"],
-    "disclosure": {"Level": ["Primary"], "Type": ["Close", "Link", "Open"], "State": ["Default", "Hover", "Focus"]}
-  },
-  "normalization": {
-    "recommendedPropertyNames": ["Favorite", "State"],
-    "notes": [
-      "Favorite × State is visible in the child-tile snapshot data.",
-      "Add/Remove and disclosure patterns appear as nested controls and should remain separate from the tile's main state contract."
-    ]
-  }
+  "verification": {"status": "observed", "reason": "Observed snapshot data is available."},
+  "variants": {"Favorite": ["No", "Yes"], "State": ["Default", "Hover"]},
+  "subcomponents": {},
+  "evidence": {"nestedPatterns": {"actionState": ["Add", "Remove"], "disclosure": {"Level": ["Primary"], "Type": ["Close", "Link", "Open"], "State": ["Default", "Hover", "Focus"]}}},
+  "normalization": {"recommendedPropertyNames": ["Favorite", "State"], "notes": ["Nested patterns remain separate from the main state contract."], "details": {}}
 }
