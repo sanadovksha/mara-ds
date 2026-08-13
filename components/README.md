@@ -1,52 +1,77 @@
 # Components
 
-Component definitions remain in Figma. This directory documents the mapping between Figma component families and production components.
+Component definitions remain in Figma. This directory is the reviewable translation layer between Figma component families and future production implementations.
 
 ## Inventory
 
-- `catalog.json` — component-page catalog and snapshot counters
+- `catalog.json` — 46 component pages and snapshot counters
 - `variant-property-index.md` — compact index of variant/property patterns extracted from the uploaded `.fig` snapshot
+- `<family>/contract.json` — one normalized contract for each component page
 
-The live Figma manifest contains 46 dedicated component pages. The uploaded `.fig` snapshot contains 5,897 indexed variant nodes across 168 distinct property signatures. Snapshot counts may include legacy or unpublished variants, so Figma remains the source of truth for what is currently published.
+The uploaded `.fig` snapshot contains 5,897 indexed variant nodes across 168 distinct property signatures. Snapshot counts may include legacy or unpublished variants, so Figma remains the source of truth for what is currently published.
 
-## Normalized contracts
+## Component Contract Schema v1
 
-The first component-family contracts are now documented separately:
+All 46 component contracts use one top-level shape:
 
-- `button/contract.json`
-- `text-field/contract.json`
-- `form-controls/contract.json`
-- `tabs/contract.json`
+```json
+{
+  "schemaVersion": 1,
+  "component": "Button",
+  "source": {
+    "figmaPage": "❖ Buttons",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": {
+    "status": "observed",
+    "reason": "..."
+  },
+  "variants": {},
+  "subcomponents": {},
+  "evidence": {},
+  "normalization": {
+    "recommendedPropertyNames": [],
+    "notes": [],
+    "details": {}
+  }
+}
+```
 
-Each contract keeps **observed Figma values** separate from **normalization recommendations**. Recommended names are not treated as changes to the Figma source until they are explicitly applied there.
+### Verification status
 
-These contracts are intended to become the stable translation layer between Figma and production code. Future component contracts should use the same structure: source, observed variants/properties, normalization notes, and eventually production implementation / Code Connect metadata.
+`verification.status` has two allowed values:
 
-## Figma component families
+- `observed` — usable variant/property evidence was isolated from the uploaded snapshot.
+- `pending-verification` — the family/page is confirmed, but the public component API still requires live published Figma metadata.
 
-The current Figma file contains dedicated pages for Buttons, Form Controls, Text Fields, Navigation, Tabs, Modals, Tooltips, Sport components, Casino Cards, Banners, Bonus, Icons and other product patterns.
+A pending contract must not be treated as a production component API.
 
-Each component document should capture:
+### Data placement
 
-- Figma component/page and node reference
-- variants and states
-- design-token dependencies
-- accessibility/interaction notes
-- production implementation path
-- status of Figma ↔ code mapping
+- `variants` contains directly observed top-level variant/property data.
+- `subcomponents` keeps nested component sets separate instead of flattening them into one oversized API.
+- `evidence` stores partial, related or supporting snapshot observations that should not be promoted to top-level props.
+- `normalization.recommendedPropertyNames` contains proposed code/design-system naming, not silent source renames.
+- `normalization.notes` explains limitations and cleanup decisions.
+- `normalization.details` stores structured normalization metadata when needed.
+
+Legacy top-level fields such as `observedVariantSignature`, `observedVariants`, `observedPatterns` and string-form `verification` are no longer valid in Schema v1.
+
+`python scripts/validate_components.py` enforces this structure for all 46 contracts.
 
 ## Naming cleanup
 
-The snapshot shows consistent properties such as `State`, `Size` and `Type`, but also legacy generic properties such as `Property 1`. Generic properties should be treated as cleanup candidates and should not be copied directly into production component APIs.
+The snapshot shows consistent properties such as `State`, `Size` and `Type`, but also legacy generic properties such as `Property 1`. Generic properties remain cleanup candidates and are not automatically copied into production component APIs.
 
-Examples already found during normalization:
+Examples:
 
 - Button has a mature `Size / State / Style / Theme / Type` signature.
-- Text Field contains the lowercase property `outlined`; `Outlined` is suggested only as a future normalization.
-- Checkbox uses a property named `Checkbox` with `Off / On`; `Checked` is a possible production-friendly mapping, not a Figma rename.
-- Tabs contains a `Dark Mode` property at container level; production theming should normally come from the DS theme context rather than a public Tabs prop.
-- Radio patterns need a separate cleanup pass because multiple property signatures coexist in the snapshot.
+- Text Field contains the lowercase source property `outlined`; `Outlined` is only the recommended normalized name.
+- Checkbox uses the source property `Checkbox` with `Off / On`; `Checked` is a production-friendly recommendation.
+- Tabs contains a container-level `Dark Mode`; production theming should normally come from theme context.
+- Radio patterns remain separate evidence because multiple legacy signatures coexist.
 
 ## Code Connect
 
-Code Connect is not configured in this repository yet. The connected Figma account reported that Code Connect requires a Dev or Full seat on an Organization or Enterprise plan, so component-to-code mappings should be added only when that requirement is available and production component paths are known.
+Code Connect is not configured yet. Add component-to-code mappings only when production implementation paths are known and the connected Figma account supports the required Code Connect capability.
