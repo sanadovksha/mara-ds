@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Восстановление пароля — Mara DS prototype</title>
+  <style>
+    :root {
+      /* mara-ds: Light • COM */
+      --brand: #F32539;
+      --brand-hover: #D91F31;
+      --green: #24A900;
+      --bg: #F6F6FC;
+      --surface: #FFFFFF;
+      --surface-subtle: #FAFAFF;
+      --border: #E4E4EE;
+      --text: #1F1D2A;
+      --text-secondary: #79789E;
+      --text-tertiary: #9D9CC3;
+      --danger-bg: #FFE8EB;
+      --danger: #F32539;
+      --focus: #4A4AE7;
+      --radius-s: 8px;
+      --radius-m: 12px;
+      --radius-l: 18px;
+      --shadow: 0 12px 36px rgba(31, 29, 42, .08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .app-header {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--brand);
+      position: relative;
+    }
+    .logo-mark::before,
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      background: white;
+      border-radius: 2px;
+    }
+    .logo-mark::before { width: 16px; height: 4px; left: 7px; top: 8px; }
+    .logo-mark::after { width: 10px; height: 4px; left: 7px; top: 17px; }
+
+    main {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px 56px;
+    }
+
+    .card {
+      width: min(100%, 420px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-l);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .back {
+      border: 0;
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 0;
+      margin-bottom: 22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 650;
+    }
+    .back:hover { color: var(--text); }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.12;
+      margin: 0 0 10px;
+      letter-spacing: -.025em;
+    }
+    .lead {
+      margin: 0 0 24px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .field { margin-bottom: 16px; }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .input-wrap { position: relative; }
+    input {
+      width: 100%;
+      height: 52px;
+      padding: 0 44px 0 14px;
+      color: var(--text);
+      border: 1px solid #C0BDD3;
+      border-radius: var(--radius-s);
+      outline: none;
+      background: var(--surface);
+      transition: border-color .15s, box-shadow .15s;
+    }
+    input::placeholder { color: var(--text-tertiary); }
+    input:focus {
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(74,74,231,.14);
+    }
+    input[aria-invalid="true"] {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px rgba(243,37,57,.10);
+    }
+    .toggle-password {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      right: 6px;
+      top: 6px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-secondary);
+    }
+    .hint, .error {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .hint { color: var(--text-secondary); }
+    .error { color: var(--danger); }
+
+    .button {
+      width: 100%;
+      min-height: 44px;
+      border: 0;
+      border-radius: var(--radius-s);
+      padding: 11px 16px;
+      font-weight: 750;
+      transition: background .15s, opacity .15s;
+    }
+    .button-primary { color: white; background: var(--brand); }
+    .button-primary:hover { background: var(--brand-hover); }
+    .button-primary:disabled { opacity: .42; cursor: default; }
+    .button-secondary {
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .link-button {
+      border: 0;
+      background: transparent;
+      color: var(--brand);
+      padding: 0;
+      font-weight: 700;
+    }
+
+    .meta {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .requirements {
+      padding: 12px 14px;
+      background: var(--surface-subtle);
+      border-radius: var(--radius-m);
+      border: 1px solid var(--border);
+      margin: 4px 0 18px;
+    }
+    .requirements-title { font-size: 12px; font-weight: 750; margin-bottom: 8px; }
+    .requirements ul { margin: 0; padding-left: 18px; color: var(--text-secondary); font-size: 12px; line-height: 1.6; }
+    .requirements li.ok { color: var(--green); }
+
+    .success-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(36,169,0,.12);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .notice {
+      padding: 12px 14px;
+      border-radius: var(--radius-m);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .prototype-nav {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(31,29,42,.92);
+      border-radius: 12px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.16);
+    }
+    .prototype-nav button {
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.72);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .prototype-nav button.active { background: rgba(255,255,255,.14); color: white; }
+
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    @media (max-width: 560px) {
+      .app-header { height: 56px; padding: 0 16px; }
+      main { min-height: calc(100vh - 56px); align-items: start; padding: 20px 12px 84px; }
+      .card { padding: 22px 18px; border-radius: 16px; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .prototype-nav { left: 12px; right: 12px; overflow-x: auto; justify-content: flex-start; }
+      .prototype-nav button { white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo" aria-label="Marathonbet">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>Marathonbet</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="card" aria-live="polite">
+      <div class="screen active" data-screen="request">
+        <button class="back" type="button" onclick="fakeBack()" aria-label="Вернуться ко входу">← <span>Войти</span></button>
+        <h1>Восстановление пароля</h1>
+        <p class="lead">Введите e-mail, который указан в аккаунте. Отправим ссылку для создания нового пароля.</p>
+
+        <form id="request-form" novalidate>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" />
+            <div id="email-error" class="error" role="alert" hidden>Введите корректный e-mail</div>
+          </div>
+          <button class="button button-primary" type="submit">Продолжить</button>
+        </form>
+
+        <div class="meta">Не помните e-mail? <button class="link-button" type="button">Обратиться в поддержку</button></div>
+      </div>
+
+      <div class="screen" data-screen="sent">
+        <button class="back" type="button" onclick="showScreen('request')">← <span>Назад</span></button>
+        <div class="icon" aria-hidden="true">✉</div>
+        <h1>Проверьте почту</h1>
+        <p class="lead">Если аккаунт с таким e-mail существует, мы отправили ссылку для восстановления пароля.</p>
+        <div class="notice">Ссылка действует ограниченное время. Проверьте также папку «Спам».</div>
+        <button class="button button-secondary" type="button" onclick="showScreen('password')">Открыть ссылку из письма</button>
+        <div class="meta">Не пришло письмо? <button id="resend" class="link-button" type="button" onclick="resend()">Отправить ещё раз</button></div>
+      </div>
+
+      <div class="screen" data-screen="password">
+        <h1>Создайте новый пароль</h1>
+        <p class="lead">Используйте пароль, который не применяете в других сервисах.</p>
+
+        <form id="password-form" novalidate>
+          <div class="field">
+            <label for="password">Новый пароль</label>
+            <div class="input-wrap">
+              <input id="password" name="new-password" type="password" autocomplete="new-password" placeholder="Введите пароль" />
+              <button class="toggle-password" type="button" onclick="togglePassword('password', this)" aria-label="Показать пароль">◉</button>
+            </div>
+          </div>
+
+          <div class="requirements" aria-live="polite">
+            <div class="requirements-title">Пароль должен содержать:</div>
+            <ul>
+              <li id="req-length">не менее 8 символов</li>
+              <li id="req-letter">букву</li>
+              <li id="req-number">цифру</li>
+            </ul>
+          </div>
+
+          <div class="field">
+            <label for="confirm-password">Повторите пароль</label>
+            <div class="input-wrap">
+              <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Введите пароль ещё раз" />
+              <button class="toggle-password" type="button" onclick="togglePassword('confirm-password', this)" aria-label="Показать пароль">◉</button>
+            </div>
+            <div id="password-error" class="error" role="alert" hidden>Пароли не совпадают</div>
+          </div>
+
+          <button id="save-password" class="button button-primary" type="submit" disabled>Сохранить пароль</button>
+        </form>
+      </div>
+
+      <div class="screen" data-screen="success">
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <h1>Пароль изменён</h1>
+        <p class="lead">Теперь можно войти в аккаунт с новым паролем.</p>
+        <button class="button button-primary" type="button" onclick="fakeBack()">Войти</button>
+      </div>
+    </section>
+  </main>
+
+  <nav class="prototype-nav" aria-label="Состояния прототипа">
+    <button class="active" data-target="request" onclick="showScreen('request')">1. E-mail</button>
+    <button data-target="sent" onclick="showScreen('sent')">2. Письмо</button>
+    <button data-target="password" onclick="showScreen('password')">3. Новый пароль</button>
+    <button data-target="success" onclick="showScreen('success')">4. Готово</button>
+  </nav>
+
+  <script>
+    function showScreen(name) {
+      document.querySelectorAll('.screen').forEach(el => el.classList.toggle('active', el.dataset.screen === name));
+      document.querySelectorAll('.prototype-nav button').forEach(el => el.classList.toggle('active', el.dataset.target === name));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function fakeBack() {
+      alert('В продукте здесь переход на экран входа.');
+    }
+
+    const emailForm = document.getElementById('request-form');
+    const email = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+    emailForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+      email.setAttribute('aria-invalid', valid ? 'false' : 'true');
+      emailError.hidden = valid;
+      if (valid) showScreen('sent');
+    });
+
+    function resend() {
+      const button = document.getElementById('resend');
+      button.disabled = true;
+      button.textContent = 'Отправлено';
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = 'Отправить ещё раз';
+      }, 2500);
+    }
+
+    function togglePassword(id, button) {
+      const input = document.getElementById(id);
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      button.setAttribute('aria-label', show ? 'Скрыть пароль' : 'Показать пароль');
+    }
+
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm-password');
+    const passwordError = document.getElementById('password-error');
+    const savePassword = document.getElementById('save-password');
+
+    function validatePassword() {
+      const value = password.value;
+      const requirements = {
+        length: value.length >= 8,
+        letter: /[A-Za-zА-Яа-яЁё]/.test(value),
+        number: /\d/.test(value)
+      };
+      document.getElementById('req-length').classList.toggle('ok', requirements.length);
+      document.getElementById('req-letter').classList.toggle('ok', requirements.letter);
+      document.getElementById('req-number').classList.toggle('ok', requirements.number);
+
+      const matches = confirmPassword.value === '' || value === confirmPassword.value;
+      confirmPassword.setAttribute('aria-invalid', matches ? 'false' : 'true');
+      passwordError.hidden = matches;
+      savePassword.disabled = !(requirements.length && requirements.letter && requirements.number && value === confirmPassword.value && confirmPassword.value.length > 0);
+    }
+
+    password.addEventListener('input', validatePassword);
+    confirmPassword.addEventListener('input', validatePassword);
+
+    document.getElementById('password-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!savePassword.disabled) showScreen('success');
+    });
+  </script>
+</body>
+</html>
