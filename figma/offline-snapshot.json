@@ -1,0 +1,382 @@
+{
+  "exportVersion": 1,
+  "source": {
+    "file": "designsystem-opt.fig",
+    "archiveSha256": "05d9bea049143567c0f03157ee29a7d391ce9bde841d598302ccad65404e4ea1",
+    "archiveBytes": 198817287,
+    "meta": {
+      "client_meta": {
+        "background_color": {
+          "r": 0.8806243538856506,
+          "g": 0.8986726999282837,
+          "b": 0.9337076544761658,
+          "a": 1
+        },
+        "thumbnail_size": {
+          "width": 400,
+          "height": 348
+        },
+        "render_coordinates": {
+          "x": -1588,
+          "y": -509,
+          "width": 5143,
+          "height": 4475
+        }
+      },
+      "file_name": "Design System",
+      "developer_related_links": [],
+      "exported_at": "2026-08-13T06:00:36.544Z"
+    }
+  },
+  "archive": {
+    "entries": 357,
+    "imageEntries": 353,
+    "canvasBytes": 8596899,
+    "canvasSha256": "ea6cc5f975cb15e3100f266dee740657363c6f4d1a31a40b27d3f15a4e869374",
+    "metaSha256": "8248d7bb414066e421cc14b9244cebad9eb26bac11778e3ffb39bf7dd32bf79e"
+  },
+  "canvas": {
+    "format": "fig-kiwi",
+    "version": 106,
+    "schemaCompressedLength": 29026,
+    "documentCompressedLength": 8567853,
+    "schemaBytes": 72366,
+    "schemaSha256": "731bacb78d603c379a0a9ad262bd59ce743b197ed202a617402fe34d3fbdac39",
+    "documentBytes": 34905716,
+    "documentSha256": "0eb78b03db61157a87345d233cd2b436277d279a81cc4cbf8be636acceac9654"
+  },
+  "inventory": {
+    "componentPagesExpected": 46,
+    "componentPageMentions": [
+      {
+        "name": "❖ 3ds",
+        "count": 1,
+        "offsets": [
+          2829761
+        ]
+      },
+      {
+        "name": "❖ Alerts",
+        "count": 1,
+        "offsets": [
+          993162
+        ]
+      },
+      {
+        "name": "❖ Badge",
+        "count": 1,
+        "offsets": [
+          13964757
+        ]
+      },
+      {
+        "name": "❖ Banners",
+        "count": 1,
+        "offsets": [
+          1904578
+        ]
+      },
+      {
+        "name": "❖ Bottomsheet Cards / Betslip",
+        "count": 1,
+        "offsets": [
+          1730063
+        ]
+      },
+      {
+        "name": "❖ Bonus",
+        "count": 1,
+        "offsets": [
+          2029838
+        ]
+      },
+      {
+        "name": "❖ Buttons",
+        "count": 1,
+        "offsets": [
+          991637
+        ]
+      },
+      {
+        "name": "❖ Captсha",
+        "count": 1,
+        "offsets": [
+          2264865
+        ]
+      },
+      {
+        "name": "❖ Casino Cards",
+        "count": 1,
+        "offsets": [
+          996298
+        ]
+      },
+      {
+        "name": "❖ Chips",
+        "count": 1,
+        "offsets": [
+          1595148
+        ]
+      },
+      {
+        "name": "❖ Custom Keyboard",
+        "count": 1,
+        "offsets": [
+          994102
+        ]
+      },
+      {
+        "name": "❖ Date Picker",
+        "count": 1,
+        "offsets": [
+          993716
+        ]
+      },
+      {
+        "name": "❖ DropDown",
+        "count": 1,
+        "offsets": [
+          992461
+        ]
+      },
+      {
+        "name": "❖ Empty Pages",
+        "count": 1,
+        "offsets": [
+          993861
+        ]
+      },
+      {
+        "name": "❖ Footer",
+        "count": 1,
+        "offsets": [
+          2171816
+        ]
+      },
+      {
+        "name": "❖ Form Controls",
+        "count": 1,
+        "offsets": [
+          992121
+        ]
+      },
+      {
+        "name": "❖ History Cards",
+        "count": 1,
+        "offsets": [
+          935992
+        ]
+      },
+      {
+        "name": "❖ Icons",
+        "count": 1,
+        "offsets": [
+          99617
+        ]
+      },
+      {
+        "name": "❖ Labels",
+        "count": 1,
+        "offsets": [
+          993444
+        ]
+      },
+      {
+        "name": "❖ Link",
+        "count": 1,
+        "offsets": [
+          4633181
+        ]
+      },
+      {
+        "name": "❖ Loading, spinner",
+        "count": 1,
+        "offsets": [
+          1516753
+        ]
+      },
+      {
+        "name": "❖ Markets",
+        "count": 1,
+        "offsets": [
+          996642
+        ]
+      },
+      {
+        "name": "❖ Navigation",
+        "count": 1,
+        "offsets": [
+          994232
+        ]
+      },
+      {
+        "name": "❖ Modal",
+        "count": 1,
+        "offsets": [
+          903646
+        ]
+      },
+      {
+        "name": "❖ Passcode",
+        "count": 1,
+        "offsets": [
+          3906810
+        ]
+      },
+      {
+        "name": "❖ Password Create Block",
+        "count": 1,
+        "offsets": [
+          3166168
+        ]
+      },
+      {
+        "name": "❖ Profile",
+        "count": 1,
+        "offsets": [
+          3581501
+        ]
+      },
+      {
+        "name": "❖ Search Input",
+        "count": 1,
+        "offsets": [
+          1415260
+        ]
+      },
+      {
+        "name": "❖ Select",
+        "count": 1,
+        "offsets": [
+          17019303
+        ]
+      },
+      {
+        "name": "❖ Scroll",
+        "count": 1,
+        "offsets": [
+          6518511
+        ]
+      },
+      {
+        "name": "❖ Slider Nav",
+        "count": 1,
+        "offsets": [
+          6148132
+        ]
+      },
+      {
+        "name": "❖ Sport Bar",
+        "count": 1,
+        "offsets": [
+          15811246
+        ]
+      },
+      {
+        "name": "❖ Sport Cards",
+        "count": 1,
+        "offsets": [
+          995155
+        ]
+      },
+      {
+        "name": "❖ Sport Event Header",
+        "count": 1,
+        "offsets": [
+          12817388
+        ]
+      },
+      {
+        "name": "❖ Sport Event Tile",
+        "count": 2,
+        "offsets": [
+          16629269,
+          17128915
+        ]
+      },
+      {
+        "name": "❖ Sport Event Tile Child",
+        "count": 1,
+        "offsets": [
+          17128915
+        ]
+      },
+      {
+        "name": "❖ Sport Top Card",
+        "count": 1,
+        "offsets": [
+          16602444
+        ]
+      },
+      {
+        "name": "❖ Sport Tournament Header",
+        "count": 1,
+        "offsets": [
+          15782735
+        ]
+      },
+      {
+        "name": "❖ Support",
+        "count": 1,
+        "offsets": [
+          3083536
+        ]
+      },
+      {
+        "name": "❖ Tabs",
+        "count": 1,
+        "offsets": [
+          991094
+        ]
+      },
+      {
+        "name": "❖ Tile",
+        "count": 1,
+        "offsets": [
+          3311717
+        ]
+      },
+      {
+        "name": "❖ Text Fields",
+        "count": 1,
+        "offsets": [
+          990648
+        ]
+      },
+      {
+        "name": "❖ Timer",
+        "count": 1,
+        "offsets": [
+          7979137
+        ]
+      },
+      {
+        "name": "❖ Toasts",
+        "count": 1,
+        "offsets": [
+          992321
+        ]
+      },
+      {
+        "name": "❖ Tooltips",
+        "count": 1,
+        "offsets": [
+          992943
+        ]
+      },
+      {
+        "name": "❖ Tooltip new feature",
+        "count": 1,
+        "offsets": [
+          7304491
+        ]
+      }
+    ],
+    "queries": []
+  },
+  "notes": [
+    "This is an offline binary snapshot, not a statement about current Figma publication status.",
+    "String mentions are inspection evidence only and do not prove top-level component ownership.",
+    "Promote a contract to observed only when component-set evidence is unambiguous."
+  ]
+}

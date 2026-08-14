@@ -21,6 +21,8 @@ Figma file: `Design System` (`cUFnNueMAuBe5RKObSu6c7`).
 - 14 active effect styles
 - 4 active grid styles
 - 46 dedicated component pages covered by component contracts
+- 39 component contracts with observed snapshot evidence
+- 7 component contracts still pending verification
 
 The uploaded `.fig` snapshot also contains publishable/legacy records that are kept separately from the active Figma API inventory.
 
@@ -29,6 +31,7 @@ The uploaded `.fig` snapshot also contains publishable/legacy records that are k
 ```text
 figma/
   manifest.json
+  offline-snapshot.json
 
 tokens/
   export-manifest.json
@@ -48,6 +51,8 @@ docs/
   sync.md
 
 scripts/
+  export_fig_snapshot.py
+  test_export_fig_snapshot.py
   format_json.py
   validate_tokens.py
   validate_components.py
@@ -55,28 +60,34 @@ scripts/
 
 ## Component contract status
 
-A component contract can contain an observed variant signature or be marked `pending-verification`. `pending-verification` means the component family is confirmed, but the offline `.fig` snapshot cannot reliably distinguish the current top-level public API from nested or legacy variants.
+A Schema v1 component contract is either `observed` or `pending-verification`. `pending-verification` means the component family is confirmed, but the available evidence cannot reliably distinguish the top-level public API from nested or legacy variants.
 
-Do not treat `pending-verification` contracts as production component APIs until they are checked against live published Figma metadata.
+Offline `.fig` evidence can promote a contract to `observed` only when the component-set relationship is unambiguous. Offline evidence does not prove that the same component is currently published in the live Figma library.
 
 ## Local commands
 
 ```bash
+python scripts/export_fig_snapshot.py /path/to/designsystem.fig --strict-pages
 python scripts/format_json.py
 python scripts/validate_tokens.py
 python scripts/validate_components.py
+python scripts/test_export_fig_snapshot.py
 ```
+
+`export_fig_snapshot.py` parses the `.fig` archive envelope, validates the `fig-kiwi` canvas structure, decompresses the raw-deflate schema and zstd document payload, records deterministic hashes, and checks component-page mentions from `figma/manifest.json`. Use `--query "Exact component/set name"` for repeatable binary evidence lookup.
 
 `format_json.py` gives generated JSON stable two-space formatting so future pull-request diffs are readable. Run it after regenerating snapshot files.
 
-The validation scripts also run in GitHub Actions on relevant pull requests and on pushes to `main`.
+Validation and exporter regression tests run in GitHub Actions on relevant pull requests and pushes to `main`.
 
 ## Change workflow
 
 1. Make design-token and visual-component changes in Figma first.
-2. Regenerate/export the GitHub snapshot.
-3. Run the JSON formatter and validation scripts.
-4. Review changes through a pull request.
-5. Keep generated token values out of manual GitHub edits.
+2. Export a fresh `.fig` when live API access is unavailable.
+3. Run `export_fig_snapshot.py` to regenerate `figma/offline-snapshot.json`.
+4. Review changed hashes, page coverage, queries, tokens, styles, and component evidence.
+5. Run the formatter and validation scripts.
+6. Review changes through a pull request.
+7. Keep generated token values out of manual GitHub edits.
 
 See [`docs/sync.md`](docs/sync.md) for the synchronization contract and known limitations.
