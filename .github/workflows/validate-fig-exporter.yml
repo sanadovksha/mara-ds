@@ -1,0 +1,25 @@
+name: Validate Figma exporter
+
+on:
+  pull_request:
+    paths:
+      - "scripts/export_fig_snapshot.py"
+      - "scripts/test_export_fig_snapshot.py"
+      - ".github/workflows/validate-fig-exporter.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/export_fig_snapshot.py"
+      - "scripts/test_export_fig_snapshot.py"
+      - ".github/workflows/validate-fig-exporter.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: which zstd
+      - run: python scripts/test_export_fig_snapshot.py
