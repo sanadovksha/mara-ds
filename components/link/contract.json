@@ -1,10 +1,48 @@
 {
   "schemaVersion": 1,
   "component": "Link",
-  "source": {"figmaPage": "❖ Link", "snapshot": "designsystem-opt.fig", "status": "snapshot-derived"},
-  "verification": {"status": "pending-verification", "reason": "Live properties still require verification."},
-  "variants": {},
+  "source": {
+    "figmaPage": "❖ Link",
+    "snapshot": "designsystem-opt.fig",
+    "status": "snapshot-derived"
+  },
+  "verification": {
+    "status": "observed",
+    "reason": "The offline Figma snapshot contains an unambiguous Link component-state sequence on the dedicated Link page."
+  },
+  "variants": {
+    "properties": {
+      "State": [
+        "Default",
+        "Hover",
+        "Focused"
+      ]
+    }
+  },
   "subcomponents": {},
-  "evidence": {},
-  "normalization": {"recommendedPropertyNames": [], "notes": ["The Link family is confirmed by the uploaded snapshot."], "details": {}}
+  "evidence": {
+    "snapshotOffsets": {
+      "page": 4633184,
+      "stateValues": {
+        "Default": 4633414,
+        "Hover": 4633945,
+        "Focused": 4634412
+      }
+    },
+    "adjacentUnresolvedValues": [
+      "Primary",
+      "Secondary"
+    ],
+    "note": "Primary and Secondary are adjacent to the Link state set in the binary snapshot, but their exact public property name is not promoted without a full Kiwi node decode."
+  },
+  "normalization": {
+    "recommendedPropertyNames": [
+      "state"
+    ],
+    "notes": [
+      "Use the observed State axis as the stable code-facing property.",
+      "Keep Primary/Secondary as snapshot evidence only until their exact Figma property name is decoded or confirmed live."
+    ],
+    "details": {}
+  }
 }
